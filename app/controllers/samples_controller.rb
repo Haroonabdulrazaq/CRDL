@@ -9,7 +9,7 @@ class SamplesController < ApplicationController
     end
 
     def create
-        @sample = Sample.new(smaple_params)
+        @sample = Sample.new(sample_params)
 
         if @sample.save
             redirect_to sample_path(@sample)
@@ -20,5 +20,13 @@ class SamplesController < ApplicationController
 
     def show
         @sample = Sample.find(params[:id])
+    end
+
+    private
+
+    def sample_params
+        params.require(:sample).permit(:name, :Address, :institution, :phone_num, :email, :supervisor_name,
+                                   :supervisor_contact, :referrer, :current_status, :required_service,
+                                   :description, :perishable, :retention_time, :result_due_date)
     end
 end

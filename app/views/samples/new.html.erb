@@ -42,18 +42,29 @@
     </p>
 
     <%# Other Form Parts %>
+
     <%= f.label :current_status, 'Current Status'%>
-    <%= select_tag(:current_status, raw('<option value="Undergraduate Student">Undergraduate Student</option>
-                                        <option value="Master Student">Master Student</option>
-                                        <option value="PhD Student">PhD Student</option>
-                                        <option value="Lecturer">Lecturer</option>
-                                        <option value="Scientist">Scientist</option>
-                                        <option value="Others">Others</option>')) %>
+    <%= f.select(:current_status ) do %>
+        <% [['Undergraduate Student','Undergraduate Student'], 
+            ['Master Student', 'Master Student'], 
+            ['PhD Student', 'PhD Student'],
+            ['Lecturer','Lecturer'],
+            ['Scientist','Scientist'],
+            ['Others', 'Others']].each do |c| %>
+            <%= content_tag(:option, c.first, value: c.last) %>
+        <% end %>
+    <% end %>
 
     <%= f.label :required_service, 'Required Service'%>
-    <%= select_tag(:required_service, raw('<option value="Lab for rent">Lab for rent(LFR)</option>
-                                        <option value="Contract Research Service">Contract Research Service(CRS)</option>
-                                        <option value="Data Analysis">Data Analysis</option>')) %>
+        <%= f.select(:required_service ) do %>
+            <% [['Contract Research Service', 'Contract Research Service'],
+                ['Lab for rent(LFR)','Lab for rent(LFR)'],
+                ['Data Analysis','Data Analysis'],
+                ['Others', 'Others']].each do |c| %>
+                <%= content_tag(:option, c.first, value: c.last) %> 
+        <% end %>
+    <% end %>
+
 
     <p class="">
         <%= f.label :description, 'Description'%>
@@ -67,7 +78,7 @@
 
     <p class="">
         <%= f.label :retention_time, 'Sample Retention Time'%>
-        <%= f.time_field :retention_time %>
+        <%= f.time_field :retention_time, value: Time.now %>
     </p>
     
     <p class="">
