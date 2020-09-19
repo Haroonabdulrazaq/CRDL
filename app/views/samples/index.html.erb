@@ -1,0 +1,8 @@
+<h1>All samples</h1>
+
+<% @samples.each do |sample|%>
+    <div>
+       <%= link_to sample.id, sample_path(sample) %> 
+       <p>Description: <%= sample.description%> <p>
+    </div>
+<% end %>
