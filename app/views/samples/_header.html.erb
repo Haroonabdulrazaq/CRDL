@@ -1,0 +1,53 @@
+<section class="hero is-link is-small">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+           <%= link_to 'CRDL', root_path, class: 'has-text-white is-3 title'%>
+          </a>
+          <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroA" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item">
+              Sign Up
+            </a>
+            <a class="navbar-item">
+              Sign In
+            </a>
+            <a class="navbar-item is-active">
+              Username
+            </a>
+            <span class="navbar-item">              
+              <%= link_to new_sample_path, class: "button is-primary" do %>
+                    <span class="icon">
+                    <i class="fa fa-plus-circle is-3" arial-hidden="true"></i>
+                    </span>
+                    <span>New Sample</span>
+                <% end %>             
+            </span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">
+        Title
+      </h1>
+      <h2 class="subtitle">
+        Subtitle
+      </h2>
+    </div>
+  </div>
+
+</section>
