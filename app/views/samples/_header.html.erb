@@ -5,7 +5,7 @@
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item">
-           <%= link_to 'CRDL', root_path, class: 'has-text-white is-3 title'%>
+           <%= link_to  'CRDL',root_path, class: 'has-text-white is-3 title'%>
           </a>
           <span class="navbar-burger burger" data-target="navbarMenuHeroA">
             <span></span>
@@ -42,11 +42,12 @@
   <div class="hero-body">
     <div class="container has-text-centered">
       <h1 class="title">
-        Title
+        <% if content_for(:title) %>
+            <%= yield :title %>
+        <%else%>
+            Central Research & Diagnostic Lab
+        <%end%>
       </h1>
-      <h2 class="subtitle">
-        Subtitle
-      </h2>
     </div>
   </div>
 

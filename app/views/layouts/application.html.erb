@@ -14,15 +14,15 @@
   <body>
   <%= render 'header'%>
       <% if flash[:notice]%>
-        <p class="notification is-link has-text-white"><%= notice %></p>
+        <p class="notification is-primary has-text-white"><%= notice %></p>
       <% end %>
 
   <% if flash[:alert]%>
-      <p class="alert"><%= alert %></p>
+      <p class="notification is-danger has-text-white"><%= alert %></p>
   <% end %>
   <div class="container">
     <%= yield %>
   </div>
-  <%= render 'footer'%>
+
   </body>
 </html>
