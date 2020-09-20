@@ -1,7 +1,7 @@
 class SamplesController < ApplicationController
 
     def index
-        @samples = Sample.all
+        @samples = Sample.all.order("created_at DESC") 
     end
 
     def new
@@ -12,6 +12,7 @@ class SamplesController < ApplicationController
         @sample = Sample.new(sample_params)
 
         if @sample.save
+            flash[:notice] = 'Sample Created sucessfully'
             redirect_to sample_path(@sample)
         else
             render :new
@@ -31,7 +32,7 @@ class SamplesController < ApplicationController
         @sample.update(sample_params)
 
         if @sample.save
-            flash[:success] = 'Sample Updated sucessfully'
+            flash[:notice] = 'Sample Updated sucessfully'
             redirect_to sample_path(@sample)
         else
             render :edit
