@@ -1,1 +1,90 @@
 <h1>Edit Sample</h1>
+
+<%= form_for(@sample, html: {multipart: true}) do |f| %>
+    <p class="">
+        <%= f.label :name, 'Name'%>
+        <%= f.text_field :name %>
+    </p>
+
+    <p class="">
+        <%= f.label :Address, 'Address'%>
+        <%= f.text_area :Address , size: '20x5'%>
+    </p>
+
+    <p class="">
+        <%= f.label :institution, 'Institution'%>
+        <%= f.text_field :institution %>
+    </p>
+
+    <p class="">
+        <%= f.label :phone_num, 'Phone Number'%>
+        <%= f.telephone_field :phone_num %>
+    </p>
+
+    <p class="">
+        <%= f.label :email, 'Email'%>
+        <%= f.email_field :email %>
+    </p>
+
+    <p class="">
+        <%= f.label :supervisor_name, 'Supervisor Name'%>
+        <%= f.text_field :supervisor_name %>
+    </p>
+
+    <p class="">
+        <%= f.label :supervisor_contact, 'Supervisor Contact'%>
+        <%= f.text_field :supervisor_contact %>
+    </p>
+
+    <p class="">
+        <%= f.label :referrer, 'Referrer'%>
+        <%= f.text_field :referrer %>
+    </p>
+
+    <%# Other Form Parts %>
+
+    <%= f.label :current_status, 'Current Status'%>
+    <%= f.select(:current_status ) do %>
+        <% [['Undergraduate Student','Undergraduate Student'], 
+            ['Master Student', 'Master Student'], 
+            ['PhD Student', 'PhD Student'],
+            ['Lecturer','Lecturer'],
+            ['Scientist','Scientist'],
+            ['Others', 'Others']].each do |c| %>
+            <%= content_tag(:option, c.first, value: c.last) %>
+        <% end %>
+    <% end %>
+
+    <%= f.label :required_service, 'Required Service'%>
+        <%= f.select(:required_service ) do %>
+            <% [['Contract Research Service', 'Contract Research Service'],
+                ['Lab for rent(LFR)','Lab for rent(LFR)'],
+                ['Data Analysis','Data Analysis'],
+                ['Others', 'Others']].each do |c| %>
+                <%= content_tag(:option, c.first, value: c.last) %> 
+        <% end %>
+    <% end %>
+
+
+    <p class="">
+        <%= f.label :description, 'Description'%>
+        <%= f.text_area :description, size: '30x5' %>
+    </p>
+
+    <p class="">
+        <%= f.label :perishable, 'Perishable'%>
+        <%= f.check_box :perishable %>
+    </p>
+
+    <p class="">
+        <%= f.label :retention_time, 'Sample Retention Time'%>
+        <%= f.time_field :retention_time, value: Time.now %>
+    </p>
+    
+    <p class="">
+        <%= f.label :result_due_date, 'Result Due Date'%>
+        <%= f.date_field :result_due_date %>
+    </p>
+
+    <p> <%= f.submit 'Submit'%> </p>
+<%end%>
