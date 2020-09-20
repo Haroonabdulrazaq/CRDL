@@ -13,7 +13,7 @@ class CreateSamples < ActiveRecord::Migration[6.0]
       t.text :required_service
       t.text :description
       t.boolean :perishable
-      t.time :retention_time
+      t.number :retention_time
       t.date :result_due_date
 
       t.timestamps

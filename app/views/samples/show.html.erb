@@ -1,3 +1,6 @@
 <h1>Show Sample</h1>
 
-<%= @sample.retention_time.split(' ') %>
+<p> <%= @sample.name %> </p>
+<p> <%= @sample.description %> </p>
+
+<%= link_to 'edit', edit_sample_path %>
