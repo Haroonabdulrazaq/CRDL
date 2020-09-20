@@ -26,6 +26,19 @@ class SamplesController < ApplicationController
         @sample = Sample.find(params[:id])
     end
 
+    def update 
+        @sample = Sample.find(params[:id])
+        @sample.update(sample_params)
+
+        if @sample.save
+            flash[:success] = 'Sample Updated sucessfully'
+            redirect_to sample_path(sample)
+        else
+            render :edit
+        end
+
+    end
+
     private
 
     def sample_params
