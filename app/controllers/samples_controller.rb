@@ -32,12 +32,23 @@ class SamplesController < ApplicationController
 
         if @sample.save
             flash[:success] = 'Sample Updated sucessfully'
-            redirect_to sample_path(sample)
+            redirect_to sample_path(@sample)
         else
             render :edit
         end
-
     end
+
+    def destroy  
+        @sample = Sample.find(params[:id])
+    
+        if @sample.destroy
+          flash[:alert] = 'Sample deleted Successfully'
+    
+          redirect_to root_path
+        else
+          render sample_path(@sample)
+        end
+      end    
 
     private
 
