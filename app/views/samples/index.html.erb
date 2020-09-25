@@ -25,12 +25,12 @@
                         <p> 
                             <span class="has-text-weight-bold"> Current Status: </span> <%= sample.current_status%>
                         <p>
-                        <p class="italics is-pulled-right has-text-link"> Created: <%= time_ago_in_words(sample.created_at) %> ago </p>
+                        <p class="italics has-text-link"> Created: <%= time_ago_in_words(sample.created_at) %> ago </p>
                     </div>
                 </div>
 
                 <div class="card-footer">    
-                        <%= link_to 'Show', sample_path(sample), class: "button is-link is-outlined card-footer-item has-text-centered" %>
+                        <%= link_to 'Preview', sample_path(sample), class: "button is-link is-outlined card-footer-item has-text-centered" %>
                 </div>
             </div>
         </div>
