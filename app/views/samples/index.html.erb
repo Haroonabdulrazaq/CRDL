@@ -1,0 +1,38 @@
+<% content_for :title do %>
+    Central Research & Diagnostics Lab &ndash;<%=DateTime.now.to_s(:nice_date)%> 
+<%end%>
+
+<div class="columns mt-6 is-centered">
+    <% @samples.each do |sample|%>
+        <div class="column is-one-quarter">
+            <div class="card">
+                <header class="card-header"> 
+                <%= link_to sample_path(sample) , class:"card-header-title is-link" do %> 
+                    <strong class="has-text-centered" >Sample: <%=sample.id%> </strong>                
+                <% end %>
+                </header>
+                <div class="card-content">  
+                    <div class="content">
+                        <p> 
+                            <span class="has-text-weight-bold"> Name:  </span><%= sample.name%>
+                        <p>
+                        <p> 
+                            <span class="has-text-weight-bold"> Description:  </span><%= sample.description%>
+                        <p>
+                        <p> 
+                            <span class="has-text-weight-bold"> Perishable: </span> <%= sample.perishable%>
+                        <p>
+                        <p> 
+                            <span class="has-text-weight-bold"> Current Status: </span> <%= sample.current_status%>
+                        <p>
+                        <p class="italics has-text-link"> Created: <%= time_ago_in_words(sample.created_at) %> ago </p>
+                    </div>
+                </div>
+
+                <div class="card-footer">    
+                        <%= link_to 'Preview', sample_path(sample), class: "button is-link is-outlined card-footer-item has-text-centered" %>
+                </div>
+            </div>
+        </div>
+    <% end %>  
+</div>

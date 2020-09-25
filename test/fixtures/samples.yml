@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  Address: MyText
+  institution: MyText
+  phone_num: MyString
+  email: MyText
+  supervisor_name: MyText
+  supervisor_contact: MyText
+  referrer: MyText
+  current_status: MyText
+  required_service: MyText
+  description: MyText
+  perishable: false
+  retention_time: 2020-09-19 15:21:41
+  result_due_date: 2020-09-19
+
+two:
+  name: MyText
+  Address: MyText
+  institution: MyText
+  phone_num: MyString
+  email: MyText
+  supervisor_name: MyText
+  supervisor_contact: MyText
+  referrer: MyText
+  current_status: MyText
+  required_service: MyText
+  description: MyText
+  perishable: false
+  retention_time: 2020-09-19 15:21:41
+  result_due_date: 2020-09-19
