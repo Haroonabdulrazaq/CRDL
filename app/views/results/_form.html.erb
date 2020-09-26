@@ -1,0 +1,27 @@
+<section class="section">
+   <h1 class="title is-1"> Food </h1>
+    <div class="columns">
+        <div class="column is-4">
+                <h2 class="title is-5">Protein:</h2>
+            <%= form_for(@result, html: {multipart: true}) do |f|  %>
+              <p>
+               <%= f.label :proteinrich , "Protein Rich?(Ef)" %> 
+               <%= f.check_box :proteinrich, class:"ml-2" %> </p><br/>
+              <p><%= f.text_field :Tv, placeholder: "Titre Value", class: "input" %></p><br/>
+              <p><%= f.text_field :Ws, placeholder: "Weight of Crucible", class: "input" %></p><br/>
+              <%= f.submit "Save", class: "button is-outlined is-link is-pulled-right"%>
+            <%end%>
+        </div>
+<!--Moisture -->
+        <div class="column is-4">
+            <h2 class="title is-5"> Moisture: </h2>
+            <%= form_for(@result, html: {multipart: true}) do |f|  %>
+              <p><%= f.text_field :Wsc , placeholder: "Weight of sample and Crucible", class: "input" %> </p><br/>
+              <p><%= f.text_field :Wca, placeholder: "Weight of crucible after drying", class: "input" %></p><br/>
+              <p><%= f.text_field :Ws, placeholder: "Weight of sample", class: "input" %></p><br/>
+              <%= f.submit "Save", class: "button is-outlined is-link is-pulled-right"%>
+            <%end%>
+        </div>
+
+    </div>
+</section>

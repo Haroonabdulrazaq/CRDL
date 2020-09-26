@@ -1,7 +1,7 @@
 <%= form_for(@sample, html: {multipart: true}) do |f| %>
     <p class="">
         <%= f.label :name, 'Name'%>
-        <%= f.text_field :name %>
+        <%= f.text_field :name class: "input" %>
     </p>
 
     <p class="">
