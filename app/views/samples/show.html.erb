@@ -6,3 +6,14 @@
 <%= link_to 'edit', edit_sample_path %>
 
 <%= link_to 'Delete', sample_path, method: :delete , data: {confirm: 'Are you sure you want to delete this sample?'} %>
+
+<nav class="navbar is-fixed-bottom">
+	<div class="navbar-menu">
+		<div class="navbar-item">
+			<div class="field is-grouped">
+				<p class="control">
+					<%= link_to 'Create Result', new_result_path, class: "button is-dark" %>
+				</p>
+		</div>
+	</div>
+</nav>

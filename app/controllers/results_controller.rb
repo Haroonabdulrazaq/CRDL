@@ -9,10 +9,10 @@ class ResultsController < ApplicationController
     end
 
     def create 
-        @result = Sample.new(result_params)
+        @result = sample.results.build(result_params)
         if @result.save
           flash[:notice] = "Result created sucessfully"
-          redirect_to result_path
+          redirect_to result_path(@result)
         else
           flash[:alert] = "Result was not created, for some reasons"
           render :new
