@@ -1,5 +1,5 @@
 class ResultsController < ApplicationController
-    
+
     def index 
         @results = Result.all
     end
@@ -9,6 +9,7 @@ class ResultsController < ApplicationController
     end
 
     def create 
+        @result = Sample.new(result_params)
         if @result.save
           flash[:notice] = "Result created sucessfully"
           redirect_to result_path

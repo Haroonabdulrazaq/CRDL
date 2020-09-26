@@ -2,7 +2,8 @@
    <h1 class="title is-1"> Food </h1>
     <div class="columns">
         <div class="column is-4">
-                <h2 class="title is-5">Protein:</h2>
+        <!--Protein -->
+                <h2 class="title is-5">Protein(%):</h2>
             <%= form_for(@result, html: {multipart: true}) do |f|  %>
               <p>
                <%= f.label :proteinrich , "Protein Rich?(Ef)" %> 
@@ -12,9 +13,10 @@
               <%= f.submit "Save", class: "button is-outlined is-link is-pulled-right"%>
             <%end%>
         </div>
+
 <!--Moisture -->
         <div class="column is-4">
-            <h2 class="title is-5"> Moisture: </h2>
+            <h2 class="title is-5"> Moisture(%): </h2>
             <%= form_for(@result, html: {multipart: true}) do |f|  %>
               <p><%= f.text_field :Wsc , placeholder: "Weight of sample and Crucible", class: "input" %> </p><br/>
               <p><%= f.text_field :Wca, placeholder: "Weight of crucible after drying", class: "input" %></p><br/>
@@ -24,4 +26,51 @@
         </div>
 
     </div>
+</section>
+<!--Water Lab-->
+<section class="section">
+   <h1 class="title is-1"> Water Lab </h1>
+    <div class="columns">
+        <div class="column is-4">
+        <!--Turbidity -->
+                <h2 class="title is-5">Turbidty(NTU):</h2>
+            <%= form_for(@result, html: {multipart: true}) do |f|  %>
+              <p>
+               <%= f.text_field :Abs, placeholder: "Absorbant", class: "input" %> </p><br/>
+              <p><%= f.text_field :T, placeholder: "Trans", class: "input" %></p><br/>
+              <%= f.submit "Save", class: "button is-outlined is-link is-pulled-right"%>
+            <%end%>
+        </div>
+</section>
+
+<!--Chemistry-->
+<section class="section">
+   <h1 class="title is-1"> Chemistry: </h1>
+    <div class="columns">
+        <div class="column is-4">
+        <!--Turbidity -->
+                <h2 class="title is-5">BOD(mg/l):</h2>
+            <%= form_for(@result, html: {multipart: true}) do |f|  %>
+              <p>
+               <%= f.text_field :DO5, placeholder: "DO5", class: "input" %> </p><br/>
+              <p><%= f.text_field :DO1, placeholder: "DO1", class: "input" %></p><br/>
+              <%= f.submit "Save", class: "button is-outlined is-link is-pulled-right"%>
+            <%end%>
+        </div>
+</section>
+
+<!--Chemistry-->
+<section class="section">
+   <h1 class="title is-1"> BioChemistry: </h1>
+    <div class="columns">
+        <div class="column is-4">
+        <!--Turbidity -->
+                <h2 class="title is-5">Creatinine(mg/ml):</h2>
+            <%= form_for(@result, html: {multipart: true}) do |f|  %>
+              <p>
+               <%= f.text_field :DABSsample, placeholder: "Change in Absorbant Sample", class: "input" %> </p><br/>
+              <p><%= f.text_field :DABSstd, placeholder: "Change in Absorbant Standard", class: "input" %></p><br/>
+              <%= f.submit "Save", class: "button is-outlined is-link is-pulled-right"%>
+            <%end%>
+        </div>
 </section>
