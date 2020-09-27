@@ -9,7 +9,9 @@ class ResultsController < ApplicationController
     end
 
     def create 
-        @result = sample.results.build(result_params)
+        # @result = current_sample.results.build(result_params)
+        @result = Result.new(result_params)
+        @result[:sample_id] = session[:sample_id]
         if @result.save
           flash[:notice] = "Result created sucessfully"
           redirect_to result_path(@result)
@@ -17,6 +19,10 @@ class ResultsController < ApplicationController
           flash[:alert] = "Result was not created, for some reasons"
           render :new
         end
+    end
+
+    def show 
+        @result = Result.find(params[:id])
     end
 
 

@@ -22,6 +22,7 @@ class SamplesController < ApplicationController
 
     def show
         @sample = Sample.find(params[:id])
+        session[:sample_id] = @sample.id
     end
 
     def edit 
