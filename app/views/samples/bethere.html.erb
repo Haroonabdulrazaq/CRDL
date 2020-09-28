@@ -1,0 +1,59 @@
+<div class="column is-5">
+
+            <%= f.text_area :Address, size:'20x5', class:"input mb-4",placeholder:"Address" %>
+
+            <%= f.telephone_field :phone_num, class: "input mb-4", placeholder:"Phone Number" %>
+
+            <%= f.text_field :referrer, class: "input mb-4", placeholder:"Referrer" %>
+
+            <%= f.label :current_status, 'Current Status'%>
+                <%= f.select(:current_status ) do %>
+                <% [['Undergraduate Student','Undergraduate Student'], 
+                    ['Master Student', 'Master Student'], 
+                    ['PhD Student', 'PhD Student'],
+                    ['Lecturer','Lecturer'],
+                    ['Scientist','Scientist'],
+                    ['Others', 'Others']].each do |c| %>
+                    <%= content_tag(:option, c.first, value: c.last) %>
+                <% end %>
+                <% end %>
+
+                <%= f.text_area :description, size:'30x5', class: "textarea", plcaeholder:"Description" %>
+
+                <%= f.time_field :retention_time, value: Time.now, placeholder:"Sample Retention Time" %>
+
+        </div>
+
+
+
+
+        <!--First Half-->
+                <div class="column is-5">   
+            <%= f.text_field :name, class: "input mb-4", placeholder:"Name" %>
+
+            <%= f.text_field :institution, class: "input mb-4", placeholder:"Instituition" %>
+
+            <%= f.email_field :email, class: "input mb-4", placeholder:"Email"  %>
+
+            <%= f.text_field :supervisor_name, class: "input mb-4", placeholder: "Supervisor Name" %>
+
+            <%= f.text_field :supervisor_contact, class: "input mb-4",placeholder:"Supervisor Contact" %>
+
+            <%= f.label :required_service, 'Required Service'%>
+            <%= f.select(:required_service ) do %>
+                <% [['Contract Research Service', 'Contract Research Service'],
+                    ['Lab for rent(LFR)','Lab for rent(LFR)'],
+                    ['Data Analysis','Data Analysis'],
+                    ['Others', 'Others']].each do |c| %>
+                    <%= content_tag(:option, c.first, value: c.last) %> 
+                <% end %>
+                <% end %>
+
+                <%= f.label :perishable, 'Perishable'%>
+                <%= f.check_box :perishable%>
+
+
+                <%= f.label :result_due_date, 'Result Due Date'%>
+                <%= f.date_field :result_due_date %>
+
+        </div>
