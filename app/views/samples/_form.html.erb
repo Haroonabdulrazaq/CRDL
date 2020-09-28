@@ -1,44 +1,53 @@
-    <div class="columns is-centered is-vcentered">
-       
-        <div class="column is-4"> <!--First Half-->
+
         <%= form_for(@sample, html: {multipart: true}) do |f| %>
-           <%= f.text_field :name, class: "input mb-4", placeholder:"Name" %>
+        <div class="columns is-centered is-vcentered">
+       
+            <div class="column is-4"> <!--First Half-->
+            <%= f.text_field :name, class: "input mb-4", placeholder:"Name" %>
 
             <%= f.text_field :institution, class: "input mb-4", placeholder:"Instituition" %>
 
-            <%= f.email_field :email, class: "input mb-4", placeholder:"Email"  %>
+            <%= f.telephone_field :phone_num, class: "input mb-4", placeholder:"Phone Number" %>
 
             <%= f.text_field :supervisor_name, class: "input mb-4", placeholder: "Supervisor Name" %>
 
-            <%= f.text_field :supervisor_contact, class: "input mb-4",placeholder:"Supervisor Contact" %>
-
-            <%= f.label :required_service, 'Required Service'%>
-            <%= f.select(:required_service ) do %>
-                <% [['Contract Research Service', 'Contract Research Service'],
-                    ['Lab for rent(LFR)','Lab for rent(LFR)'],
-                    ['Data Analysis','Data Analysis'],
-                    ['Others', 'Others']].each do |c| %>
-                    <%= content_tag(:option, c.first, value: c.last) %> 
-                <% end %>
-                <% end %>
-
-                <%= f.label :perishable, 'Perishable'%>
-                <%= f.check_box :perishable%>
-
-
-                <%= f.label :result_due_date, 'Result Due Date'%>
-                <%= f.date_field :result_due_date %>
-        </div>
+            </div>
         <!--Second Half-->
+
+            <div class="column is-4">
+
+                <%= f.email_field :email, class: "input mb-4", placeholder:"Email"  %>
+
+                <%= f.text_field :Address, size:'20x5', class:"input mb-4",placeholder:"Address" %>
+
+                <%= f.text_field :referrer, class: "input mb-4", placeholder:"Referrer" %>
+
+                <%= f.text_field :supervisor_contact, class: "input mb-4",placeholder:"Supervisor Contact" %>
+            </div>       
+            </div><!--Column End-->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <%= f.text_area :description, size:'30x6', class: "textarea is-medium", placeholder:"Description" %>
+       </div>
+    </div><!--Description Ends-->
+    <div class="columns is-centered"><!--Other Form part-->
+        <div class="column is-2">
+            <%= f.label :perishable, 'Perishable', class:"checkbox"%>
+            <%= f.check_box :perishable, class:"mt-5 mr-5"%>
+        </div>
+        <div class="column is-2">
+            <%= f.label :result_due_date, 'Result Due Date'%>
+            <%= f.date_field :result_due_date, class:"input" %>
+        </div>
+        <div class="column is-2">
+        <%= f.label :retention_time, 'Retention time'%>
+            <%= f.time_field :retention_time, value: Time.now, class:"input " %>
+        </div>
+    </div>
+    <div class="columns is-centered">
         <div class="column is-4">
-            <%= f.text_field :Address, size:'20x5', class:"input mb-4",placeholder:"Address" %>
-
-            <%= f.telephone_field :phone_num, class: "input mb-4", placeholder:"Phone Number" %>
-
-            <%= f.text_field :referrer, class: "input mb-4", placeholder:"Referrer" %>
-
-            <%= f.label :current_status, 'Current Status'%>
-                <%= f.select(:current_status ) do %>
+             <%= f.label :current_status, 'Current Status'%>
+                <%= f.select(:current_status,class:"select" ) do %>
                 <% [['Undergraduate Student','Undergraduate Student'], 
                     ['Master Student', 'Master Student'], 
                     ['PhD Student', 'PhD Student'],
@@ -48,15 +57,20 @@
                     <%= content_tag(:option, c.first, value: c.last) %>
                 <% end %>
                 <% end %>
-
-                <%= f.text_area :description, size:'30x5', class: "textarea is-medium", placeholder:"Description" %>
-
-                <%= f.time_field :retention_time, value: Time.now, placeholder:"Sample Retention Time" %>
-    
         </div>
+        <div class="column is-4">
+            <%= f.label :required_service, 'Required Service'%>
+            <%= f.select(:required_service,class:"input" ) do %>
+                <% [['Contract Research Service', 'Contract Research Service'],
+                    ['Lab for rent(LFR)','Lab for rent(LFR)'],
+                    ['Data Analysis','Data Analysis'],
+                    ['Others', 'Others']].each do |c| %>
+                    <%= content_tag(:option, c.first, value: c.last) %> 
+                <% end %>
+                <% end %>
         </div>
+    </div>
+  
             <%= f.submit class:"button is-link is-pulled-right" %>
         <%end%> <!--Form End-->
-    </div><!--Column End-->
 
-    <%# Other Form Parts %>    
