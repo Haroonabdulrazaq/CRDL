@@ -1,2 +1,4 @@
-<h1 class="has-text-centered title is-4 mt-1">New Sample</h1>
+<%content_for :title do %>
+   Create New Sample &ndash;<%=DateTime.now.to_s(:nice_date)%> 
+<%end%>
    <%= render 'form', sample: @sample %>

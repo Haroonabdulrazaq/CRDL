@@ -1,7 +1,22 @@
-
+<div class="mt-6"></div>
         <%= form_for(@sample, html: {multipart: true}) do |f| %>
-        <div class="columns is-centered is-vcentered">
-       
+        <% if @sample.errors.any? %>
+            <div class="message is-danger">
+                <div class="message-header">
+                    <p>
+                       <%= pluralize(sample.errors.count, "error")%>  Prohibited this sample from being saved
+                    </p>
+                </div>
+                <div class="message-body">
+                <ul>
+                    <% sample.errors.full_messages.each do |message|%>
+                        <li><%= message %></li>
+                    <%end%>
+                </ul>
+                </div>
+            </div>
+        <%end%>
+        <div class="columns is-centered is-vcentered">   
             <div class="column is-4"> <!--First Half-->
             <%= f.text_field :name, class: "input mb-4", placeholder:"Name" %>
 
@@ -13,7 +28,6 @@
 
             </div>
         <!--Second Half-->
-
             <div class="column is-4">
 
                 <%= f.email_field :email, class: "input mb-4", placeholder:"Email"  %>
@@ -47,7 +61,7 @@
     <div class="columns is-centered">
         <div class="column is-4">
              <%= f.label :current_status, 'Current Status'%>
-                <%= f.select(:current_status,class:"select" ) do %>
+                <%= f.select (:current_status) do %>
                 <% [['Undergraduate Student','Undergraduate Student'], 
                     ['Master Student', 'Master Student'], 
                     ['PhD Student', 'PhD Student'],
