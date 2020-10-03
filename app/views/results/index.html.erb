@@ -2,3 +2,9 @@
    RESULTS &ndash;<%=DateTime.now.to_s(:nice_date)%> 
 <%end%>
 <h1>All results</h1>
+<% @results.each do |result|%>
+<ul>
+<li>   <%= link_to result.sample_id, result_path(result) %></li>
+<ul>
+
+<%end%>

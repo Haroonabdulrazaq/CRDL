@@ -8,8 +8,7 @@ class ResultsController < ApplicationController
         @result = Result.new
     end
 
-    def create 
-        # @result = current_sample.results.build(result_params)
+    def create
         @result = Result.new(result_params)
         @result[:sample_id] = session[:sample_id]
         if @result.save
@@ -22,14 +21,20 @@ class ResultsController < ApplicationController
     end
 
     def show 
-        @result = Result.find(params[:id])
+        @result = Result.find(params[:id])               
+        @result_calc = ResultCal.new(@result)
+        @protein = @result_calc.protein
+        @moisture = @result_calc.moisturize
+        @turbidity = @result_calc.Turbidity
+        @color = @result_calc.Color
+        @bod = @result_calc.BOD
+        @creatinine = @result_calc.Creatinine
     end
-
 
     private 
 
     def result_params 
         params.require(:result).permit(:Tv, :Ws, :proteinrich, :Wsc,
-                                     :Wca, :T, :DO5, :DO1, :DABSsample, :DABSstd)
+                                     :Wca,:Abs ,:T, :DO5, :DO1, :DABSsample, :DABSstd)
     end
 end
