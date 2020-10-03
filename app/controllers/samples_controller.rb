@@ -15,12 +15,14 @@ class SamplesController < ApplicationController
             flash[:notice] = 'Sample Created sucessfully'
             redirect_to sample_path(@sample)
         else
+            flash.now[:notice] = 'Sample can not be created for some reasons'
             render :new
         end
     end
 
     def show
         @sample = Sample.find(params[:id])
+        session[:sample_id] = @sample.id
     end
 
     def edit 
@@ -47,6 +49,7 @@ class SamplesController < ApplicationController
     
           redirect_to root_path
         else
+          flash.now[:notice] = 'Sample can not be deleted for some reasons'
           render sample_path(@sample)
         end
       end    

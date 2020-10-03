@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+html{
+     background: #eef;
+ }
+// #3273dc;
+ select{
+    padding: inherit;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    background: inherit;
+    border-radius:inherit;
+    border:0.5px solid #aaa;
+ }

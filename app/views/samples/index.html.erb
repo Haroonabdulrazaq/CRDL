@@ -1,10 +1,9 @@
 <% content_for :title do %>
     Central Research & Diagnostics Lab &ndash;<%=DateTime.now.to_s(:nice_date)%> 
 <%end%>
-
 <div class="columns mt-6 is-centered">
-    <% @samples.each do |sample|%>
-        <div class="column is-one-quarter">
+<% @samples.each do |sample|%>
+        <div class="column is-4">
             <div class="card">
                 <header class="card-header"> 
                 <%= link_to sample_path(sample) , class:"card-header-title is-link" do %> 
@@ -32,7 +31,7 @@
                 <div class="card-footer">    
                         <%= link_to 'Preview', sample_path(sample), class: "button is-link is-outlined card-footer-item has-text-centered" %>
                 </div>
-            </div>
+            </div>     
         </div>
-    <% end %>  
+    <% end %>
 </div>

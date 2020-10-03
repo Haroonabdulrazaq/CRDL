@@ -1,3 +1,4 @@
-<h1>New sample Form</h1>
-
-    <%= render 'form', sample: @sample %>
+<%content_for :title do %>
+   Create New Sample &ndash;<%=DateTime.now.to_s(:nice_date)%> 
+<%end%>
+   <%= render 'form', sample: @sample %>

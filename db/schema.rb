@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_19_142141) do
+ActiveRecord::Schema.define(version: 2020_09_26_135856) do
+
+  create_table "results", force: :cascade do |t|
+    t.integer "Tv"
+    t.integer "Ws"
+    t.boolean "proteinrich"
+    t.integer "Wsc"
+    t.integer "Wca"
+    t.integer "Abs"
+    t.integer "T"
+    t.integer "DO5"
+    t.integer "DO1"
+    t.integer "DABSsample"
+    t.integer "DABSstd"
+    t.integer "sample_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sample_id"], name: "index_results_on_sample_id"
+  end
 
   create_table "samples", force: :cascade do |t|
     t.text "name"
@@ -31,4 +49,5 @@ ActiveRecord::Schema.define(version: 2020_09_19_142141) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "results", "samples"
 end

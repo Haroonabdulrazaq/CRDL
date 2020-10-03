@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Tv: 1
+  Ws: 1
+  proteinrich: false
+  Wsc: 1
+  Wca: 1
+  Abs: 1
+  T: 1
+  DO5: 1
+  DO1: 1
+  DABSsample: 1
+  DABSstd: 1
+  sample: one
+
+two:
+  Tv: 1
+  Ws: 1
+  proteinrich: false
+  Wsc: 1
+  Wca: 1
+  Abs: 1
+  T: 1
+  DO5: 1
+  DO1: 1
+  DABSsample: 1
+  DABSstd: 1
+  sample: two

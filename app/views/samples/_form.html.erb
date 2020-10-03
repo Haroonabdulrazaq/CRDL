@@ -1,89 +1,90 @@
-<%= form_for(@sample, html: {multipart: true}) do |f| %>
-    <p class="">
-        <%= f.label :name, 'Name'%>
-        <%= f.text_field :name %>
-    </p>
+<div class="mt-6"></div>
+        <%= form_for(@sample, html: {multipart: true}) do |f| %>
+        <% if @sample.errors.any? %>
+            <div class="message is-danger">
+                <div class="message-header">
+                    <p>
+                       <%= pluralize(sample.errors.count, "error")%>  Prohibited this sample from being saved
+                    </p>
+                </div>
+                <div class="message-body">
+                <ul>
+                    <% sample.errors.full_messages.each do |message|%>
+                        <li><%= message %></li>
+                    <%end%>
+                </ul>
+                </div>
+            </div>
+        <%end%>
+        <div class="columns is-centered is-vcentered">   
+            <div class="column is-4"> <!--First Half-->
+            <%= f.text_field :name, class: "input mb-4", placeholder:"Name" %>
 
-    <p class="">
-        <%= f.label :Address, 'Address'%>
-        <%= f.text_area :Address , size: '20x5'%>
-    </p>
+            <%= f.text_field :institution, class: "input mb-4", placeholder:"Instituition" %>
 
-    <p class="">
-        <%= f.label :institution, 'Institution'%>
-        <%= f.text_field :institution %>
-    </p>
+            <%= f.telephone_field :phone_num, class: "input mb-4", placeholder:"Phone Number" %>
 
-    <p class="">
-        <%= f.label :phone_num, 'Phone Number'%>
-        <%= f.telephone_field :phone_num %>
-    </p>
+            <%= f.text_field :supervisor_name, class: "input mb-4", placeholder: "Supervisor Name" %>
 
-    <p class="">
-        <%= f.label :email, 'Email'%>
-        <%= f.email_field :email %>
-    </p>
+            </div>
+        <!--Second Half-->
+            <div class="column is-4">
 
-    <p class="">
-        <%= f.label :supervisor_name, 'Supervisor Name'%>
-        <%= f.text_field :supervisor_name %>
-    </p>
+                <%= f.email_field :email, class: "input mb-4", placeholder:"Email"  %>
 
-    <p class="">
-        <%= f.label :supervisor_contact, 'Supervisor Contact'%>
-        <%= f.text_field :supervisor_contact %>
-    </p>
+                <%= f.text_field :Address, size:'20x5', class:"input mb-4",placeholder:"Address" %>
 
-    <p class="">
-        <%= f.label :referrer, 'Referrer'%>
-        <%= f.text_field :referrer %>
-    </p>
+                <%= f.text_field :referrer, class: "input mb-4", placeholder:"Referrer" %>
 
-    <%# Other Form Parts %>
+                <%= f.text_field :supervisor_contact, class: "input mb-4",placeholder:"Supervisor Contact" %>
+            </div>       
+            </div><!--Column End-->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <%= f.text_area :description, size:'30x6', class: "textarea is-medium", placeholder:"Description" %>
+       </div>
+    </div><!--Description Ends-->
+    <div class="columns is-centered"><!--Other Form part-->
+        <div class="column is-2">
+            <%= f.label :perishable, 'Perishable', class:"checkbox"%>
+            <%= f.check_box :perishable, class:"mt-5 mr-5"%>
+        </div>
+        <div class="column is-2">
+            <%= f.label :result_due_date, 'Result Due Date'%>
+            <%= f.date_field :result_due_date, class:"input" %>
+        </div>
+        <div class="column is-2">
+        <%= f.label :retention_time, 'Retention time'%>
+            <%= f.time_field :retention_time, value: Time.now, class:"input " %>
+        </div>
+    </div>
+    <div class="columns is-centered">
+        <div class="column is-4">
+             <%= f.label :current_status, 'Current Status'%>
+                <%= f.select (:current_status) do %>
+                <% [['Undergraduate Student','Undergraduate Student'], 
+                    ['Master Student', 'Master Student'], 
+                    ['PhD Student', 'PhD Student'],
+                    ['Lecturer','Lecturer'],
+                    ['Scientist','Scientist'],
+                    ['Others', 'Others']].each do |c| %>
+                    <%= content_tag(:option, c.first, value: c.last) %>
+                <% end %>
+                <% end %>
+        </div>
+        <div class="column is-4">
+            <%= f.label :required_service, 'Required Service'%>
+            <%= f.select(:required_service,class:"input" ) do %>
+                <% [['Contract Research Service', 'Contract Research Service'],
+                    ['Lab for rent(LFR)','Lab for rent(LFR)'],
+                    ['Data Analysis','Data Analysis'],
+                    ['Others', 'Others']].each do |c| %>
+                    <%= content_tag(:option, c.first, value: c.last) %> 
+                <% end %>
+                <% end %>
+        </div>
+    </div>
+  
+            <%= f.submit class:"button is-link is-pulled-right mb-6" %>
+        <%end%> <!--Form End-->
 
-    <%= f.label :current_status, 'Current Status'%>
-    <%= f.select(:current_status ) do %>
-        <% [['Undergraduate Student','Undergraduate Student'], 
-            ['Master Student', 'Master Student'], 
-            ['PhD Student', 'PhD Student'],
-            ['Lecturer','Lecturer'],
-            ['Scientist','Scientist'],
-            ['Others', 'Others']].each do |c| %>
-            <%= content_tag(:option, c.first, value: c.last) %>
-        <% end %>
-    <% end %>
-
-    <%= f.label :required_service, 'Required Service'%>
-        <%= f.select(:required_service ) do %>
-            <% [['Contract Research Service', 'Contract Research Service'],
-                ['Lab for rent(LFR)','Lab for rent(LFR)'],
-                ['Data Analysis','Data Analysis'],
-                ['Others', 'Others']].each do |c| %>
-                <%= content_tag(:option, c.first, value: c.last) %> 
-        <% end %>
-    <% end %>
-
-
-    <p class="">
-        <%= f.label :description, 'Description'%>
-        <%= f.text_area :description, size: '30x5' %>
-    </p>
-
-    <p class="">
-        <%= f.label :perishable, 'Perishable'%>
-        <%= f.check_box :perishable %>
-    </p>
-
-    <p class="">
-        <%= f.label :retention_time, 'Sample Retention Time'%>
-        <%= f.time_field :retention_time, value: Time.now %>
-    </p>
-    
-    <p class="">
-        <%= f.label :result_due_date, 'Result Due Date'%>
-        <%= f.date_field :result_due_date %>
-    </p>
-
-    <p> <%= f.submit %> </p>
-
-<%end%>

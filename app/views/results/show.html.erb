@@ -1,0 +1,58 @@
+<% content_for :title do %>
+	Result for Sample <%= @result.sample_id %>  &ndash; <%=@result.created_at.to_s(:nice_date)%> 
+<%end%>
+<div class="columns is-centered mt-6">
+  <div class="column is-10 table-container">
+    <table class="table is-fullwidth has-text-centered">
+      <tr class="thead">
+        <th class="is-size-4">Test </th>
+        <th class="is-size-4">Unit </th>
+        <th class="is-size-4">Result </th>
+        <th class="is-size-4">Reference </th>
+        <th class="is-size-4">Methods </th>
+      </tr>
+      <tr class="tr"><!--Protein-->
+        <td class="is-size-5"> Protein </td>
+        <td class="td"> % </td>
+        <td class="td"><%= @protein %> </td>
+        <td class="">  </td> 
+        <td class="has-text-link">  </td> 
+      </tr>
+      <tr><!--Moisture-->
+        <td class="is-size-5"> Moisture </td>
+        <td> % </td>
+        <td> <%= @moisture %></td>
+        <td class="">Ao Ac 2019</td> 
+        <td class="has-text-link">Ao Ac 2019</td>
+      </tr>
+      <tr><!--Turbidity-->
+        <td class="is-size-5"> Turbidity </td>
+        <td> (N.T.U) </td>
+        <td> <%=  @turbidity %></td>
+        <td class="">  </td> 
+        <td class="has-text-link">Spectrophotometry</td>
+      </tr>
+      <tr><!--Color-->
+        <td class="is-size-5"> Color </td>
+        <td> (N.T.U) </td>
+        <td> <%=  @color %></td>
+        <td class="">  </td> 
+        <td class="has-text-link">Spectrophotometry</td>
+      </tr>
+      <tr><!--BOD-->
+        <td class="is-size-5"> BOD </td>
+        <td> (mg/l) </td>
+        <td> <%= @bod  %></td>
+        <td class="">  </td> 
+        <td class="has-text-link">Dessolve oxygen machine</td>
+      </tr>
+      <tr><!--Creatinine-->
+        <td class="is-size-5"> Creatinine </td>
+        <td> (mg/ml) </td>
+        <td> <%= @creatinine  %></td>
+        <td class="">  </td>
+        <td class="has-text-link"> </td>
+      </tr>
+    </table>
+  </div>
+</div>
