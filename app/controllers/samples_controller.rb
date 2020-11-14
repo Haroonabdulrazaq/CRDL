@@ -1,7 +1,7 @@
 class SamplesController < ApplicationController
 
     def index
-        @samples = Sample.all.order("created_at DESC") 
+        @samples = Sample.all.order("created_at DESC")
     end
 
     def new

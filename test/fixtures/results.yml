@@ -1,29 +1,55 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  Tv: 1
-  Ws: 1
+  Tv: 1.5
+  Ws: 1.5
   proteinrich: false
-  Wsc: 1
-  Wca: 1
-  Abs: 1
-  T: 1
-  DO5: 1
-  DO1: 1
-  DABSsample: 1
-  DABSstd: 1
+  Wsc: 1.5
+  Wca: 1.5
+  Abs: 1.5
+  T: 1.5
+  DO5: 1.5
+  DO1: 1.5
+  DABSsample: 1.5
+  DABSstd: 1.5
+  Bs: 1.5
+  Ss: 1.5
+  Ns: 1.5
+  Ws: 1.5
+  Va: 1.5
+  Na: 1.5
+  Wa: 1.5
+  bi: 1.5
+  Si: 1.5
+  Ni: 1.5
+  Wi: 1.5
+  Vp: 1.5
+  Np: 1.5
   sample: one
 
 two:
-  Tv: 1
-  Ws: 1
+  Tv: 1.5
+  Ws: 1.5
   proteinrich: false
-  Wsc: 1
-  Wca: 1
-  Abs: 1
-  T: 1
-  DO5: 1
-  DO1: 1
-  DABSsample: 1
-  DABSstd: 1
+  Wsc: 1.5
+  Wca: 1.5
+  Abs: 1.5
+  T: 1.5
+  DO5: 1.5
+  DO1: 1.5
+  DABSsample: 1.5
+  DABSstd: 1.5
+  Bs: 1.5
+  Ss: 1.5
+  Ns: 1.5
+  Ws: 1.5
+  Va: 1.5
+  Na: 1.5
+  Wa: 1.5
+  bi: 1.5
+  Si: 1.5
+  Ni: 1.5
+  Wi: 1.5
+  Vp: 1.5
+  Np: 1.5
   sample: two

@@ -1,7 +1,7 @@
 <% content_for :title do %>
     Central Research & Diagnostics Lab &ndash;<%=DateTime.now.to_s(:nice_date)%> 
 <%end%>
-<div class="columns mt-6 is-centered is-multiline">
+<div class="columns mt-6 is-centered is-multiline is-mobile">
 <% @samples.each do |sample|%>
         <div class="column is-3">
             <div class="card">
