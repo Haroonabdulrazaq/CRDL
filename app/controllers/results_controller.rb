@@ -33,6 +33,10 @@ class ResultsController < ApplicationController
         @color = @result_calc.Color
         @bod = @result_calc.BOD
         @creatinine = @result_calc.Creatinine
+        @saponification = @result_calc.Saponification
+        @acid_value = @result_calc.Acid_value
+        @fatty_acid = @result_calc.Fatty_acid
+        @iodine_value = @result_calc.Iodine_value
     end
 
     private 
