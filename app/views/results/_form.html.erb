@@ -4,13 +4,13 @@
         <div class="column is-4">
         <!--Protein -->
                 <h2 class="title is-5">Protein(%):</h2>
-            <%= form_for(@result, html: {multipart: true}) do |f|  %>
+            <%= form_for [@sample, @result] do |f|  %>
+            
               <p>
                <%= f.label :proteinrich , "Protein Rich?(Ef)" %> 
                <%= f.check_box :proteinrich, class:"ml-2" %> </p><br/>
               <p><%= f.text_field :Tv, placeholder: "Titre Value", class: "input" %></p><br/>
               <p><%= f.text_field :Ws, placeholder: "Weight of Crucible", class: "input" %></p><br/>
-          
         </div>
 
 <!--Moisture -->

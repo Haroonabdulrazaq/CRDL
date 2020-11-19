@@ -1,19 +1,22 @@
 class ResultsController < ApplicationController
 
-    def index 
+    def index
+        # @sample = Sample.find_by(@result.sample_id)
         @results = Result.all
     end
 
     def new  
         @result = Result.new
+        @sample = Sample.find_by_id(params[:sample_id])
     end
 
     def create
-        @result = Result.new(result_params)
-        @result[:sample_id] = session[:sample_id]
+        @sample = Sample.find_by_id(params[:sample_id])
+        @result = @sample.results.new(result_params)
+        # @result = Result.new(result_params)
         if @result.save
           flash[:notice] = "Result created sucessfully"
-          redirect_to result_path(@result)
+          redirect_to sample_result_path( @result.sample_id, @result)
         else
           flash[:alert] = "Result was not created, for some reasons"
           render :new
@@ -21,7 +24,8 @@ class ResultsController < ApplicationController
     end
 
     def show 
-        @result = Result.find(params[:id])               
+        @result =  Result.find(params[:id])
+        @sample  = @result.sample_id
         @result_calc = ResultCal.new(@result)
         @protein = @result_calc.protein
         @moisture = @result_calc.moisturize
