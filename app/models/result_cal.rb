@@ -56,5 +56,10 @@ class ResultCal
       @iodine_value = ((@result.bi - @result.Si) * @result.Ni)/ @result.Wi
       @iodine_value.round(4)
     end
+
+    def Polenske_value
+      @polenske_value = @result.Vp * @result.Np
+      @polenske_value.round(4)
+    end
 end
   

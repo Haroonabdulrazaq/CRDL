@@ -37,6 +37,7 @@ class ResultsController < ApplicationController
         @acid_value = @result_calc.Acid_value
         @fatty_acid = @result_calc.Fatty_acid
         @iodine_value = @result_calc.Iodine_value
+        @polenske_value = @result_calc.Polenske_value 
     end
 
     private 
