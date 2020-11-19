@@ -19,7 +19,6 @@
               <p><%= f.text_field :Wsc , placeholder: "Weight of sample and Crucible", class: "input" %> </p><br/>
               <p><%= f.text_field :Wca, placeholder: "Weight of crucible after drying", class: "input" %></p><br/>
               <p><%= f.text_field :Ws, placeholder: "Weight of sample", class: "input" %></p><br/>
-      
         </div>
 
     </div>
@@ -61,19 +60,38 @@
         <div class="column is-4">
         <!--Turbidity -->
                 <h2 class="title is-5">Creatinine(mg/ml):</h2>
- 
               <p>
                <%= f.text_field :DABSsample, placeholder: "Change in Absorbant Sample", class: "input" %> </p><br/>
               <p><%= f.text_field :DABSstd, placeholder: "Change in Absorbant Standard", class: "input" %></p><br/>
      
 
         </div>
+    </div>
 </section>
 
+<!-- Fats & Oil -->
+    <section>
+        <h1 class="title is-1"> Fats & Oil: </h1>
+        <div class="columns">
+            <div class="column is-4">
+            <!--Turbidity -->
+                <h2 class="title is-5">Saponification(mg/ml):</h2>
+                <p>
+                    <%= f.text_field :Bsap, placeholder: "Blank Volume(ml)", class: "input" %> 
+                </p><br/>
+              <p>
+                <%= f.text_field :Ssap, placeholder: "Sample Volume(ml)", class: "input" %>
+              </p><br/>
+              <p>
+               <%= f.text_field :Nsap, placeholder: "Normality", class: "input" %> </p><br/>
+              <p><%= f.text_field :Wsap, placeholder: "Weight of Sample(gm)", class: "input" %></p><br/>
+
+            </div>
+        </div>
+    </section>
 <section class="section">
     <div class="columns"> 
         <div class="column">  
-
                 <%= f.submit "Save", class: "button is-link is-medium is-fullwidth"%>
         </div>
     </div>

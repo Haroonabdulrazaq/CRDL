@@ -39,6 +39,8 @@ class ResultsController < ApplicationController
 
     def result_params 
         params.require(:result).permit(:Tv, :Ws, :proteinrich, :Wsc,
-                                     :Wca,:Abs ,:T, :DO5, :DO1, :DABSsample, :DABSstd)
+                                     :Wca, :Abs ,:T, :DO5, :DO1, :DABSsample, :DABSstd,
+                                     :Bsap, :Ssap, :Nsap, :Wsap, :Va, :Na, :Wa, :bi,
+                                     :Si, :Ni, :Wi, :Vp, :Np)
     end
 end
