@@ -72,9 +72,9 @@
 <!-- Fats & Oil -->
     <section>
         <h1 class="title is-1"> Fats & Oil: </h1>
-        <div class="columns">
+        <div class="columns is-multiline is-centered">
             <div class="column is-4">
-            <!-- Saponification -->
+                <!-- Saponification -->
                 <h2 class="title is-5">Saponification(mg/ml):</h2>
                 <p>
                     <%= f.text_field :Bsap, placeholder: "Blank Volume(ml)", class: "input" %> 
@@ -86,11 +86,50 @@
                <%= f.text_field :Nsap, placeholder: "Normality", class: "input" %> </p><br/>
               <p><%= f.text_field :Wsap, placeholder: "Weight of Sample(gm)", class: "input" %></p><br/>
             </div>
+
+            <div class="column is-4">
+                <!-- Acid Value -->
+                <h2 class="title is-5">Acid Value(mg/ml):</h2>
+                <p>
+                    <%= f.text_field :Va, placeholder: "Volume of Base (KOH/NaOH)", class: "input" %> 
+                </p><br/>
+              <p>
+                <%= f.text_field :Na, placeholder: "Normalityof Base (KOH/NaOH)", class: "input" %>
+              </p><br/>
+              <p>
+               <%= f.text_field :Wa, placeholder: "Weight Of Sample(g)", class: "input" %> </p>
+            </div>
+            <div class="column is-4">
+                <!-- Iodine Value -->
+              <h2 class="title is-5">Iodine Value(mg/ml):</h2>
+              <p>
+                <%= f.text_field :bi, placeholder: "Volume of Blank(ml)", class: "input" %> 
+              </p><br/>
+              <p>
+                <%= f.text_field :Si, placeholder: "Volume(ml) required for Sample", class: "input" %>
+              </p><br/>
+              <p>
+                <%= f.text_field :Wi, placeholder: "Weight(g) of sample", class: "input" %>
+              </p><br/>
+              <p>
+               <%= f.text_field :Ni, placeholder: "Normality", class: "input" %>
+              </p>
+            </div>
+            <div class="column is-4">
+                <!-- Polenske Value -->
+              <h2 class="title is-5">Polenske Value:</h2>
+              <p>
+                <%= f.text_field :Vp, placeholder: "Volume(ml)", class: "input" %> 
+              </p><br/>
+              <p>
+                <%= f.text_field :Np, placeholder: "Normality", class: "input" %>
+              </p><br/>
+            </div>
         </div>
     </section>
 <section class="section">
-    <div class="columns"> 
-        <div class="column">  
+    <div class="columns is-centered"> 
+        <div class="column is-4">  
                 <%= f.submit "Save", class: "button is-link is-medium is-fullwidth"%>
         </div>
     </div>
