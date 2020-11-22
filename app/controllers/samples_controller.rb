@@ -2,6 +2,10 @@ class SamplesController < ApplicationController
 
     def index
         @samples = Sample.all.order("created_at DESC")
+        if params[:search]
+            @search_term = params[:search]
+            @samples = @samples.search_by(@search_term)
+        end
     end
 
     def new

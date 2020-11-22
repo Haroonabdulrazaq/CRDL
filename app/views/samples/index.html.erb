@@ -1,6 +1,13 @@
 <% content_for :title do %>
     Central Research & Diagnostics Lab &ndash;<%=DateTime.now.to_s(:nice_date)%> 
 <%end%>
+<div class="columns mt-4">
+    <div class="column is-3">
+    <%= form_for "", url: samples_path, role: "search", method: :get  do   %>
+        <%= text_field_tag :search, @search_term, placeholder: "...Search by name", class: "input is-4"%>
+    <%end%>
+    </div>
+ </div>
 <div class="columns mt-6 is-centered is-multiline is-mobile">
 <% @samples.each do |sample|%>
         <div class="column is-3">
