@@ -1,7 +1,7 @@
 <% content_for :title do %>
 	Result for Sample <%= @result.sample_id %>  &ndash; <%=@result.created_at.to_s(:nice_date)%> 
 <%end%>
-<div class="columns is-centered mt-6">
+<div class="columns is-centered mt-6 mb-6">
   <div class="column is-10 table-container">
     <table class="table is-fullwidth has-text-centered">
       <tr class="thead">
@@ -51,8 +51,48 @@
         <td> (mg/ml) </td>
         <td> <%= @creatinine  %></td>
         <td class="">  </td>
-        <td class="has-text-link"> </td>
+        <td class="has-text-link">Spectrophotometry</td>
       </tr>
+
+      <tr><!--Saponification -->
+        <td class="is-size-5"> Saponification  </td>
+        <td>  </td>
+        <td> <%= @saponification%></td>
+        <td class="">  </td>
+       <td class="has-text-link">Dessolve oxygen machine</td> 
+      </tr>
+
+      <tr><!--Acid_value -->
+        <td class="is-size-5"> Acid_value  </td>
+        <td>  </td>
+        <td> <%= @acid_value %></td>
+        <td class="">  </td>
+        <td class="has-text-link">Ao Ac 2019</td>
+      </tr>
+
+      <tr><!--Fatty_acid  -->
+        <td class="is-size-5"> Fatty_acid  </td>
+        <td>   </td>
+        <td> <%= @fatty_acid %></td>
+        <td class="">  </td>
+        <td class="has-text-link">Dessolve oxygen machine</td> 
+      </tr>
+
+      <tr><!-- Iodine_value-->
+        <td class="is-size-5"> Iodine_value </td>
+        <td>   </td>
+        <td> <%= @iodine_value %></td>
+        <td class="">  </td>
+        <td class="has-text-link">Dessolve oxygen machine</td> 
+      </tr>
+      <tr><!-- Polenske_value-->
+        <td class="is-size-5"> Polenske_value </td>
+        <td>   </td>
+        <td> <%= @polenske_value %></td>
+        <td class="">  </td>
+        <td class="has-text-link">Ao Ac 2019</td>
+      </tr>
+
     </table>
   </div>
 </div>

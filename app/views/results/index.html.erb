@@ -4,7 +4,10 @@
 <h1>All results</h1>
 <% @results.each do |result|%>
 <ul>
-<li>   <%= link_to result.sample_id, result_path(result) %></li>
-<ul>
+<li>  
+   <%= result.id%>
+   <%= link_to result.sample_id, sample_result_path(result.sample_id,result.id) %>
+</li>
+</ul>
 
 <%end%>

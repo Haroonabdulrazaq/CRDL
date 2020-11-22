@@ -10,20 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_26_135856) do
+ActiveRecord::Schema.define(version: 2020_11_14_130517) do
 
   create_table "results", force: :cascade do |t|
-    t.integer "Tv"
-    t.integer "Ws"
+    t.float "Tv"
+    t.float "Ws"
     t.boolean "proteinrich"
-    t.integer "Wsc"
-    t.integer "Wca"
-    t.integer "Abs"
-    t.integer "T"
-    t.integer "DO5"
-    t.integer "DO1"
-    t.integer "DABSsample"
-    t.integer "DABSstd"
+    t.float "Wsc"
+    t.float "Wca"
+    t.float "Abs"
+    t.float "T"
+    t.float "DO5"
+    t.float "DO1"
+    t.float "DABSsample"
+    t.float "DABSstd"
+    t.float "Bsap"
+    t.float "Ssap"
+    t.float "Nsap"
+    t.float "Wsap"
+    t.float "Va"
+    t.float "Na"
+    t.float "Wa"
+    t.float "bi"
+    t.float "Si"
+    t.float "Ni"
+    t.float "Wi"
+    t.float "Vp"
+    t.float "Np"
     t.integer "sample_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

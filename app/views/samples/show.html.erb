@@ -24,12 +24,12 @@
 			<div class="column">
 				<%= link_to 'Edit', edit_sample_path(@sample), class: "button is-link is-outlined" %>			
  			</div>
+			 <div class="column is-pulled-right">
+				<%= link_to 'Results', sample_results_path(@sample), class: "button is-link is-outlined" %>			
+ 			</div>
 		</div>
 	</div>
 </div>
- 
-
-
 
 
 <nav class="navbar is-pulled-right">
@@ -37,7 +37,7 @@
 		<div class="navbar-item">
 			<div class="field is-grouped ">
 				<p class="control ">
-					<%= link_to 'Create Result', new_result_path(@sample.id), class: "button is-dark" %>
+					<%= link_to 'Create Result', new_sample_result_path(@sample), class: "button is-dark" %>
 				</p>
 		</div>
 	</div>
