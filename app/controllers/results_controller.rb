@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ResultsController < ApplicationController
+  before_action :authenticate_user!
   def index
     # @sample = Sample.find_by(@result.sample_id)
     @results = Result.all

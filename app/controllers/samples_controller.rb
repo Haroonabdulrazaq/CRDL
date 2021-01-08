@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class SamplesController < ApplicationController
+  before_action :authenticate_user!
   def index
     @samples = Sample.all.order('created_at DESC')
     if params[:search]
