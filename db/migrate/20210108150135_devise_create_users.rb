@@ -4,8 +4,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :users do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
+      t.string :email,              null: false, default: ''
+      t.string :encrypted_password, null: false, default: ''
 
       ## Recoverable
       t.string   :reset_password_token
@@ -48,9 +48,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
 
-     # Initialize first account:
-     User.create! do |u|
-      u.email             = 'admin@cdrl.com'
+    # Initialize first account:
+    User.create! do |u|
+      u.email = 'admin@cdrl.com'
       u.username          = 'admin'
       u.first_name        = 'admin'
       u.last_name         = 'admin'

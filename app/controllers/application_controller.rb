@@ -1,6 +1,7 @@
-class ApplicationController < ActionController::Base
+# frozen_string_literal: true
 
-    # def current_sample 
-    #   @current_sample = @sample.id
-    # end
+class ApplicationController < ActionController::Base
+  # def current_sample
+  #   @current_sample = @sample.id
+  # end
 end
