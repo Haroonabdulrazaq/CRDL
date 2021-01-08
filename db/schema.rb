@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2020_11_14_130517) do
     t.text "required_service"
     t.text "description"
     t.boolean "perishable"
-    t.time "retention_time"
+    t.decimal "retention_time"
     t.date "result_due_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
