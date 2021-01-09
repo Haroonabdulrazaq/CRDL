@@ -7,5 +7,9 @@ class CreatePrices < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+
+    Price.create do |p|
+      p.price = 100
+    end
   end
 end

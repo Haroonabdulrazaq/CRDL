@@ -84,12 +84,12 @@
                 <% end %>
         </div>
         <div class="column is-2">
-            <%= f.label :price %>
-            <%= f.select :price, options_for_select(@prices_for_select), class:"input" %>
+            <%= f.label :price_id %>
+            <%= f.select :price_id, options_for_select(@prices_for_select), class:"input" %>
         </div>
         <div class="column is-2">
-            <%= f.label :currency %>
-            <%= f.select :currency, options_for_select(@currencies_for_select), class:"input" %>
+            <%= f.label :currency_id %>
+            <%= f.select :currency_id, options_for_select(@currencies_for_select), class:"input" %>
         </div>
     </div>
   

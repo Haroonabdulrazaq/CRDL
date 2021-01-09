@@ -5,5 +5,8 @@ class CreateCurrencies < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    Currency.create do |c|
+      c.currency = 'NGN'
+    end
   end
 end

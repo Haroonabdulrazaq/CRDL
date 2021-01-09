@@ -67,6 +67,6 @@ class SamplesController < ApplicationController
   def sample_params
     params.require(:sample).permit(:name, :Address, :institution, :phone_num, :email, :supervisor_name,
                                    :supervisor_contact, :referrer, :current_status, :required_service,
-                                   :description, :perishable, :retention_time, :result_due_date)
+                                   :description, :perishable, :retention_time, :result_due_date, :price_id, :currency_idre)
   end
 end
