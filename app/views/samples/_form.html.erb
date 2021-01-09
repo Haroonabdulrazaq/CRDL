@@ -83,6 +83,14 @@
                 <% end %>
                 <% end %>
         </div>
+        <div class="column is-2">
+            <%= f.label :price %>
+            <%= f.select :price, options_for_select(@prices_for_select), class:"input" %>
+        </div>
+        <div class="column is-2">
+            <%= f.label :price %>
+            <%= f.select :price, options_for_select(@prices_for_select), class:"input" %>
+        </div>
     </div>
   
             <%= f.submit class:"button is-link is-pulled-right mb-6" %>
