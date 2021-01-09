@@ -1,0 +1,5 @@
+<%content_for :title do %>
+    Editing result <%= @result.id%> for sample <%= @sample.name %> &ndash; <%= @result.created_at.to_s(:nice_date) %>
+<%end%>
+
+    <%= render 'form' %>

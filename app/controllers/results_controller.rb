@@ -25,6 +25,23 @@ class ResultsController < ApplicationController
     end
   end
 
+  def edit
+    @result = Result.find(params[:id])
+    @sample = Sample.find_by_id(params[:sample_id])
+  end
+
+  def update
+    @result = Result.find(params[:id])
+    @result.update(result_params)
+
+    if @result.save
+      flash[:notice] = 'Result Updated sucessfully'
+      redirect_to sample_result_path(@result)
+    else
+      render :edit
+    end
+  end
+
   def show
     @result = Result.find(params[:id])
     @sample = @result.sample_id
@@ -40,6 +57,20 @@ class ResultsController < ApplicationController
     @fatty_acid = @result_calc.Fatty_acid
     @iodine_value = @result_calc.Iodine_value
     @polenske_value = @result_calc.Polenske_value
+  end
+
+
+  def destroy
+    @result = Result.find(params[:id])
+
+    if @result.destroy
+      flash[:alert] = 'Result deleted Successfully'
+
+      redirect_to root_path
+    else
+      flash.now[:notice] = 'Result can not be deleted for some reasons'
+      render sample_result_path(@result)
+    end
   end
 
   private

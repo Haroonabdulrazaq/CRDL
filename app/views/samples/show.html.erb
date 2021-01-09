@@ -17,7 +17,12 @@
 			<p class="panel-block"><span class="label mr-4">Result due date</span><%= @sample.result_due_date %></p>
 			<p class="panel-block"><span class="label mr-4">Retention time</span><%= @sample.retention_time %></p>
 		</nav>
-		<%= display_sample_control_buttons @sample %>
+		<div class="columns">
+			<%= display_sample_control_buttons @sample %>
+			<div class='column is-pulled-right'>
+        <%= link_to 'Results', sample_results_path(@sample), class: 'button is-link is-outlined'%>		
+      </div>
+    </div>
 	</div>
 </div>
 
