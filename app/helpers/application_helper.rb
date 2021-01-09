@@ -27,4 +27,23 @@ module ApplicationHelper
     display.html_safe
   end
 
+  def display_create_result_button sample
+    display = ''
+    if can? :manage, Result
+      display = "
+      <nav class='navbar is-pulled-right'>
+        <div class='navbar-menu '>
+          <div class='navbar-item'>
+            <div class='field is-grouped '>
+              <p class='control '>
+                #{link_to 'Create Result', new_sample_result_path(sample), class: 'button is-dark'}
+              </p>
+          </div>
+        </div>
+      </nav>
+      "
+    end
+    display.html_safe
+  end
+
 end

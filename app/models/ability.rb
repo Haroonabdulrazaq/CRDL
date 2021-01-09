@@ -12,10 +12,10 @@ class Ability
         can :manage, :rails_admin
         can :manage, :dashboard
       elsif user.receptionist_role?
-        can :create, Sample
+        can :manage, Sample
         can :read, :all
       elsif user.scientist_role?
-        can :create, Result
+        can :manage, Result
         can :read, :all
       end
     #
