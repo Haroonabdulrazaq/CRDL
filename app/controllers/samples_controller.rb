@@ -35,6 +35,8 @@ class SamplesController < ApplicationController
 
   def edit
     @sample = Sample.find(params[:id])
+    @prices_for_select = Price.all.map { |p| [p.price, p.id] }
+    @currencies_for_select = Currency.all.map { |c| [c.currency, c.id] }
   end
 
   def update
