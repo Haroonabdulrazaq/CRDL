@@ -12,7 +12,8 @@ class SamplesController < ApplicationController
 
   def new
     @sample = Sample.new
-    @prices_for_select = Price.all.map { |p| [p.price, price.id] }
+    @prices_for_select = Price.all.map { |p| [p.price, p.id] }
+    @currencies_for_select = Currency.all.map { |c| [c.currency, c.id] }
   end
 
   def create
