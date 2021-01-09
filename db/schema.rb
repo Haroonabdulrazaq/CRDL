@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_08_150135) do
+ActiveRecord::Schema.define(version: 2021_01_09_060833) do
+
+  create_table "prices", force: :cascade do |t|
+    t.float "price", default: 0.0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "results", force: :cascade do |t|
     t.float "Tv"
@@ -60,6 +66,7 @@ ActiveRecord::Schema.define(version: 2021_01_08_150135) do
     t.date "result_due_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -81,4 +88,5 @@ ActiveRecord::Schema.define(version: 2021_01_08_150135) do
   end
 
   add_foreign_key "results", "samples"
+  add_foreign_key "samples", "prices"
 end

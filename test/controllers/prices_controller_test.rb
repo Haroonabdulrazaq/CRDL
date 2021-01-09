@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class PricesControllerTest < ActionDispatch::IntegrationTest
@@ -5,17 +7,17 @@ class PricesControllerTest < ActionDispatch::IntegrationTest
     @price = prices(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get prices_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_price_url
     assert_response :success
   end
 
-  test "should create price" do
+  test 'should create price' do
     assert_difference('Price.count') do
       post prices_url, params: { price: { float: @price.float, sample_id: @price.sample_id } }
     end
@@ -23,22 +25,22 @@ class PricesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to price_url(Price.last)
   end
 
-  test "should show price" do
+  test 'should show price' do
     get price_url(@price)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_price_url(@price)
     assert_response :success
   end
 
-  test "should update price" do
+  test 'should update price' do
     patch price_url(@price), params: { price: { float: @price.float, sample_id: @price.sample_id } }
     assert_redirected_to price_url(@price)
   end
 
-  test "should destroy price" do
+  test 'should destroy price' do
     assert_difference('Price.count', -1) do
       delete price_url(@price)
     end

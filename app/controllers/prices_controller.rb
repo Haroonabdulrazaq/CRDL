@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class PricesController < ApplicationController
-  before_action :set_price, only: [:show, :edit, :update, :destroy]
+  before_action :set_price, only: %i[show edit update destroy]
 
   # GET /prices
   # GET /prices.json
@@ -9,8 +11,7 @@ class PricesController < ApplicationController
 
   # GET /prices/1
   # GET /prices/1.json
-  def show
-  end
+  def show; end
 
   # GET /prices/new
   def new
@@ -18,8 +19,7 @@ class PricesController < ApplicationController
   end
 
   # GET /prices/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /prices
   # POST /prices.json
@@ -62,13 +62,14 @@ class PricesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_price
-      @price = Price.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def price_params
-      params.require(:price).permit(:float, :sample_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_price
+    @price = Price.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def price_params
+    params.require(:price).permit(:float, :sample_id)
+  end
 end

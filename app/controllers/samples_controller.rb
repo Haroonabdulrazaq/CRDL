@@ -10,10 +10,10 @@ class SamplesController < ApplicationController
     end
   end
 
-    def new
-        @sample = Sample.new
-        @prices_for_select = Price.all.map{|p| [p.price, price.id]}
-    end
+  def new
+    @sample = Sample.new
+    @prices_for_select = Price.all.map { |p| [p.price, price.id] }
+  end
 
   def create
     @sample = Sample.new(sample_params)
