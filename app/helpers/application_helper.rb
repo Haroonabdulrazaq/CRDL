@@ -46,4 +46,24 @@ module ApplicationHelper
     display.html_safe
   end
 
+  def display_sample_control_buttons sample
+    display = ''
+    if can? :manage, Sample
+      display = "
+      <div class='columns'>
+        <div class='column'>
+          #{link_to 'Delete', sample_path, class: 'button is-danger is-outlined' , method: :delete , data: {confirm: 'Are you sure you want to delete this sample?'}}
+        </div>
+        <div class='column'>
+          #{link_to 'Edit', edit_sample_path(sample), class: 'button is-link is-outlined'}		
+        </div>
+        <div class='column is-pulled-right'>
+          #{link_to 'Results', sample_results_path(sample), class: 'button is-link is-outlined'}			
+        </div>
+      </div>
+      "
+    end 
+    display.html_safe   
+  end
+
 end

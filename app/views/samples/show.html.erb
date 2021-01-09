@@ -17,17 +17,7 @@
 			<p class="panel-block"><span class="label mr-4">Result due date</span><%= @sample.result_due_date %></p>
 			<p class="panel-block"><span class="label mr-4">Retention time</span><%= @sample.retention_time %></p>
 		</nav>
-		<div class="columns">
-			<div class="column">
-				<%= link_to 'Delete', sample_path, class: "button is-danger is-outlined" , method: :delete , data: {confirm: 'Are you sure you want to delete this sample?'} %>
-			</div>
-			<div class="column">
-				<%= link_to 'Edit', edit_sample_path(@sample), class: "button is-link is-outlined" %>			
- 			</div>
-			 <div class="column is-pulled-right">
-				<%= link_to 'Results', sample_results_path(@sample), class: "button is-link is-outlined" %>			
- 			</div>
-		</div>
+		<%= display_sample_control_buttons @sample %>
 	</div>
 </div>
 
