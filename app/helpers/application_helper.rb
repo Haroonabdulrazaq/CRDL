@@ -4,7 +4,11 @@ module ApplicationHelper
   def display_user_signup_login_or_create_sample
     display = ''
     display = if user_signed_in?
-      "<span class='navbar-item'>              
+      "
+      <span class='navbar-item'>#{
+        link_to 'Dashboard', rails_admin_path, class: 'button is-primary is-outlined' if can? :manage, :rails_admin
+        }</span>
+      <span class='navbar-item'>              
         #{link_to new_sample_path, class: 'button is-primary' do
             "<span class='icon'>
               <i class='fa fa-plus-circle is-3' arial-hidden='true'></i>
