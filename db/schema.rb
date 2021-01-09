@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_14_130517) do
+ActiveRecord::Schema.define(version: 2021_01_09_065025) do
+
+  create_table "currencies", force: :cascade do |t|
+    t.string "currency"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "prices", force: :cascade do |t|
+    t.float "price", default: 0.0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "results", force: :cascade do |t|
     t.float "Tv"
@@ -56,11 +68,33 @@ ActiveRecord::Schema.define(version: 2020_11_14_130517) do
     t.text "required_service"
     t.text "description"
     t.boolean "perishable"
-    t.time "retention_time"
+    t.decimal "retention_time"
     t.date "result_due_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price_id"
+    t.integer "currency_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "username", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.boolean "admin_role", default: false, null: false
+    t.boolean "scientist_role", default: false, null: false
+    t.boolean "receptionist_role", default: true, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "results", "samples"
+  add_foreign_key "samples", "currencies"
+  add_foreign_key "samples", "prices"
 end

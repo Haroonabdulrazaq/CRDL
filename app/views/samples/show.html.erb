@@ -18,27 +18,13 @@
 			<p class="panel-block"><span class="label mr-4">Retention time</span><%= @sample.retention_time %></p>
 		</nav>
 		<div class="columns">
-			<div class="column">
-				<%= link_to 'Delete', sample_path, class: "button is-danger is-outlined" , method: :delete , data: {confirm: 'Are you sure you want to delete this sample?'} %>
-			</div>
-			<div class="column">
-				<%= link_to 'Edit', edit_sample_path(@sample), class: "button is-link is-outlined" %>			
- 			</div>
-			 <div class="column is-pulled-right">
-				<%= link_to 'Results', sample_results_path(@sample), class: "button is-link is-outlined" %>			
- 			</div>
-		</div>
+			<%= display_sample_control_buttons @sample %>
+			<div class='column is-pulled-right'>
+        <%= link_to 'Results', sample_results_path(@sample), class: 'button is-link is-outlined'%>		
+      </div>
+    </div>
 	</div>
 </div>
 
 
-<nav class="navbar is-pulled-right">
-	<div class="navbar-menu ">
-		<div class="navbar-item">
-			<div class="field is-grouped ">
-				<p class="control ">
-					<%= link_to 'Create Result', new_sample_result_path(@sample), class: "button is-dark" %>
-				</p>
-		</div>
-	</div>
-</nav>
+<%= display_create_result_button @sample %>

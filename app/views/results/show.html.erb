@@ -1,7 +1,7 @@
 <% content_for :title do %>
 	Result for Sample <%= @result.sample_id %>  &ndash; <%=@result.created_at.to_s(:nice_date)%> 
 <%end%>
-<div class="columns is-centered mt-6 mb-6">
+<div class="columns is-centered mt-6">
   <div class="column is-10 table-container">
     <table class="table is-fullwidth has-text-centered">
       <tr class="thead">
@@ -94,5 +94,10 @@
       </tr>
 
     </table>
+    
   </div>
+</div>
+
+<div class="columns mb-6 is-centered">
+<%= display_sample_control_buttons @result%>
 </div>

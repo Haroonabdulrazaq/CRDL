@@ -18,16 +18,16 @@
         <%end%>
         <div class="columns is-centered is-vcentered">   
             <div class="column is-4"> <!--First Half-->
-            <%= f.text_field :name, class: "input mb-4", placeholder:"Name" %>
+                <%= f.text_field :name, class: "input mb-4", placeholder:"Name" %>
 
-            <%= f.text_field :institution, class: "input mb-4", placeholder:"Instituition" %>
+                <%= f.text_field :institution, class: "input mb-4", placeholder:"Instituition" %>
 
-            <%= f.telephone_field :phone_num, class: "input mb-4", placeholder:"Phone Number" %>
+                <%= f.telephone_field :phone_num, class: "input mb-4", placeholder:"Phone Number" %>
 
-            <%= f.text_field :supervisor_name, class: "input mb-4", placeholder: "Supervisor Name" %>
+                <%= f.text_field :supervisor_name, class: "input mb-4", placeholder: "Supervisor Name" %>
 
             </div>
-        <!--Second Half-->
+            <!--Second Half-->
             <div class="column is-4">
 
                 <%= f.email_field :email, class: "input mb-4", placeholder:"Email"  %>
@@ -38,7 +38,7 @@
 
                 <%= f.text_field :supervisor_contact, class: "input mb-4",placeholder:"Supervisor Contact" %>
             </div>       
-            </div><!--Column End-->
+        </div><!--Column End-->
     <div class="columns is-centered">
       <div class="column is-8">
         <%= f.text_area :description, size:'30x6', class: "textarea is-medium", placeholder:"Description" %>
