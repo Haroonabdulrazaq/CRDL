@@ -83,14 +83,7 @@
                 <% end %>
                 <% end %>
         </div>
-        <div class="column is-2">
-            <%= f.label :price_id %>
-            <%= f.select :price_id, options_for_select(@prices_for_select), class:"input" %>
-        </div>
-        <div class="column is-2">
-            <%= f.label :currency_id %>
-            <%= f.select :currency_id, options_for_select(@currencies_for_select), class:"input" %>
-        </div>
+        
     </div>
   
             <%= f.submit class:"button is-link is-pulled-right mb-6" %>
