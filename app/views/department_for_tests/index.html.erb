@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Department For Tests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @department_for_tests.each do |department_for_test| %>
+      <tr>
+        <td><%= department_for_test.title %></td>
+        <td><%= department_for_test.description %></td>
+        <td><%= department_for_test.user_id %></td>
+        <td><%= link_to 'Show', department_for_test %></td>
+        <td><%= link_to 'Edit', edit_department_for_test_path(department_for_test) %></td>
+        <td><%= link_to 'Destroy', department_for_test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Department For Test', new_department_for_test_path %>
