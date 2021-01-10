@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @lab_test.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @lab_test.description %>
+</p>
+
+<p>
+  <strong>Price per unit:</strong>
+  <%= @lab_test.price_per_unit %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @lab_test.user_id %>
+</p>
+
+<p>
+  <strong>Department for test:</strong>
+  <%= @lab_test.department_for_test_id %>
+</p>
+
+<%= link_to 'Edit', edit_lab_test_path(@lab_test) %> |
+<%= link_to 'Back', lab_tests_path %>

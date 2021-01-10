@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_10_053022) do
+ActiveRecord::Schema.define(version: 2021_01_10_054135) do
 
   create_table "currencies", force: :cascade do |t|
     t.string "currency"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 2021_01_10_053022) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["users_id"], name: "index_department_for_tests_on_users_id"
+  end
+
+  create_table "lab_tests", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.float "price_per_unit"
+    t.integer "users_id", null: false
+    t.integer "department_for_tests_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["department_for_tests_id"], name: "index_lab_tests_on_department_for_tests_id"
+    t.index ["users_id"], name: "index_lab_tests_on_users_id"
   end
 
   create_table "prices", force: :cascade do |t|
@@ -104,6 +116,8 @@ ActiveRecord::Schema.define(version: 2021_01_10_053022) do
   end
 
   add_foreign_key "department_for_tests", "users", column: "users_id"
+  add_foreign_key "lab_tests", "department_for_tests", column: "department_for_tests_id"
+  add_foreign_key "lab_tests", "users", column: "users_id"
   add_foreign_key "results", "samples"
   add_foreign_key "samples", "currencies"
   add_foreign_key "samples", "prices"
