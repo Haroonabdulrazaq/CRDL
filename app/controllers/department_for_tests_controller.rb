@@ -26,6 +26,7 @@ class DepartmentForTestsController < ApplicationController
   # POST /department_for_tests.json
   def create
     @department_for_test = DepartmentForTest.new(department_for_test_params)
+    @department_for_test.user_id = current_user.id
 
     respond_to do |format|
       if @department_for_test.save
@@ -71,6 +72,6 @@ class DepartmentForTestsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def department_for_test_params
-    params.require(:department_for_test).permit(:title, :description, :user_id)
+    params.require(:department_for_test).permit(:title, :description)
   end
 end
