@@ -3,7 +3,7 @@
 class LabTest < ApplicationRecord
   # validations
   validates :title, presence: true, length: { in: 2..255 }
-  validates :description, presence: true, length: { in: 2..3000 }
+  # validates :description, presence: true, length: { in: 2..3000 }
   validates :quantity, presence: true, numericality: true
   validates :price_per_unit, presence: true, numericality: true
 
