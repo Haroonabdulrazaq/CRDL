@@ -45,7 +45,10 @@ module SamplesHelper
     tmp = ''
     unless departments.size.zero?
       departments.each do |dpt|
-        tmp << "<li>#{dpt.title}</li>"
+        tmp << "
+        <li>
+          <h1>#{dpt.title}</h1>
+        </li>"
       end
     end
     display = "
