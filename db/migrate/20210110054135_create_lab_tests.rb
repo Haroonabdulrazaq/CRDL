@@ -5,7 +5,7 @@ class CreateLabTests < ActiveRecord::Migration[6.0]
     create_table :lab_tests do |t|
       t.string :title
       t.text :description
-      t.integer :quantity
+      t.integer :quantity, default: 1
       t.float :price_per_unit
       t.references :user, null: false, foreign_key: true
       t.references :department_for_test, null: false, foreign_key: true

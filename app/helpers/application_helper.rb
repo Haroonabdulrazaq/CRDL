@@ -47,6 +47,15 @@ module ApplicationHelper
           </div>
         </div>
       </div>".html_safe
+              elsif can? :manage, Sample
+                "<span class='navbar-item'>
+                #{link_to new_sample_path, class: 'button is-primary'  do
+                  "<span class='icon'>
+                    <i class='fa fa-plus-circle is-3' arial-hidden='true'></i>
+                    </span>
+                    <span>New Sample</span>".html_safe
+                end}
+              </span>".html_safe
               end}
       <span class='navbar-item'>#{link_to 'Logout', destroy_user_session_path, method: :delete,
                                                                                class: 'button is-danger'}</span>
