@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class LabTestsController < ApplicationController
-  before_action :set_lab_test, only: [:show, :edit, :update, :destroy]
+  before_action :set_lab_test, only: %i[show edit update destroy]
 
   # GET /lab_tests
   # GET /lab_tests.json
@@ -9,8 +11,7 @@ class LabTestsController < ApplicationController
 
   # GET /lab_tests/1
   # GET /lab_tests/1.json
-  def show
-  end
+  def show; end
 
   # GET /lab_tests/new
   def new
@@ -18,8 +19,7 @@ class LabTestsController < ApplicationController
   end
 
   # GET /lab_tests/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /lab_tests
   # POST /lab_tests.json
@@ -62,13 +62,14 @@ class LabTestsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_lab_test
-      @lab_test = LabTest.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def lab_test_params
-      params.require(:lab_test).permit(:title, :description, :price_per_unit, :user_id, :department_for_test_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_lab_test
+    @lab_test = LabTest.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def lab_test_params
+    params.require(:lab_test).permit(:title, :description, :price_per_unit, :user_id, :department_for_test_id)
+  end
 end

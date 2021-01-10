@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class DepartmentForTestsController < ApplicationController
-  before_action :set_department_for_test, only: [:show, :edit, :update, :destroy]
+  before_action :set_department_for_test, only: %i[show edit update destroy]
 
   # GET /department_for_tests
   # GET /department_for_tests.json
@@ -9,8 +11,7 @@ class DepartmentForTestsController < ApplicationController
 
   # GET /department_for_tests/1
   # GET /department_for_tests/1.json
-  def show
-  end
+  def show; end
 
   # GET /department_for_tests/new
   def new
@@ -18,8 +19,7 @@ class DepartmentForTestsController < ApplicationController
   end
 
   # GET /department_for_tests/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /department_for_tests
   # POST /department_for_tests.json
@@ -62,13 +62,14 @@ class DepartmentForTestsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_department_for_test
-      @department_for_test = DepartmentForTest.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def department_for_test_params
-      params.require(:department_for_test).permit(:title, :description, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_department_for_test
+    @department_for_test = DepartmentForTest.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def department_for_test_params
+    params.require(:department_for_test).permit(:title, :description, :user_id)
+  end
 end
