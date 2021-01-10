@@ -11,22 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+  <div class="columns is-centered is-vcentered">
+    <div class="column is-6">
+      <div class="field">
+        <%= form.text_field :title, class: "input mb-4", placeholder: "Title. eg: Microbiology" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+      <div class="field">
+        <%= form.text_area :description, size: "30x4" ,class: "textarea mb-4", placeholder: "Short description"  %>
+      </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+      <div class="actions">
+        <%= form.submit class: "button is-link is-pulled-right"%>
+      </div>
+    </div>
   </div>
 <% end %>
