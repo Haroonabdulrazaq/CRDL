@@ -1,44 +1,44 @@
 <div class="mt-6"></div>
-        <%= form_for(@sample, html: {multipart: true}) do |f| %>
-        <% if @sample.errors.any? %>
-            <div class="message is-danger">
-                <div class="message-header">
-                    <p>
-                       <%= pluralize(sample.errors.count, "error")%>  Prohibited this sample from being saved
-                    </p>
-                </div>
-                <div class="message-body">
-                <ul>
-                    <% @sample.errors.full_messages.each do |message|%>
-                        <li><%= message %></li>
-                    <%end%>
-                </ul>
-                </div>
+    <%= form_for(@sample, html: {multipart: true}) do |f| %>
+    <% if @sample.errors.any? %>
+        <div class="message is-danger">
+            <div class="message-header">
+                <p>
+                    <%= pluralize(sample.errors.count, "error")%>  Prohibited this sample from being saved
+                </p>
             </div>
-        <%end%>
-        <div class="columns is-centered is-vcentered">   
-            <div class="column is-4"> <!--First Half-->
-                <%= f.text_field :name, class: "input mb-4", placeholder:"Name" %>
-
-                <%= f.text_field :institution, class: "input mb-4", placeholder:"Instituition" %>
-
-                <%= f.telephone_field :phone_num, class: "input mb-4", placeholder:"Phone Number" %>
-
-                <%= f.text_field :supervisor_name, class: "input mb-4", placeholder: "Supervisor Name" %>
-
+            <div class="message-body">
+            <ul>
+                <% @sample.errors.full_messages.each do |message|%>
+                    <li><%= message %></li>
+                <%end%>
+            </ul>
             </div>
-            <!--Second Half-->
-            <div class="column is-4">
+        </div>
+    <%end%>
+    <div class="columns is-centered is-vcentered">   
+        <div class="column is-4"> <!--First Half-->
+            <%= f.text_field :name, class: "input mb-4", placeholder:"Name" %>
 
-                <%= f.email_field :email, class: "input mb-4", placeholder:"Email"  %>
+            <%= f.text_field :institution, class: "input mb-4", placeholder:"Instituition" %>
 
-                <%= f.text_field :Address, size:'20x5', class:"input mb-4",placeholder:"Address" %>
+            <%= f.telephone_field :phone_num, class: "input mb-4", placeholder:"Phone Number" %>
 
-                <%= f.text_field :referrer, class: "input mb-4", placeholder:"Referrer" %>
+            <%= f.text_field :supervisor_name, class: "input mb-4", placeholder: "Supervisor Name" %>
 
-                <%= f.text_field :supervisor_contact, class: "input mb-4",placeholder:"Supervisor Contact" %>
-            </div>       
-        </div><!--Column End-->
+        </div>
+        <!--Second Half-->
+        <div class="column is-4">
+
+            <%= f.email_field :email, class: "input mb-4", placeholder:"Email"  %>
+
+            <%= f.text_field :Address, size:'20x5', class:"input mb-4",placeholder:"Address" %>
+
+            <%= f.text_field :referrer, class: "input mb-4", placeholder:"Referrer" %>
+
+            <%= f.text_field :supervisor_contact, class: "input mb-4",placeholder:"Supervisor Contact" %>
+        </div>       
+    </div><!--Column End-->
     <div class="columns is-centered">
       <div class="column is-8">
         <%= f.text_area :description, size:'30x6', class: "textarea is-medium", placeholder:"Description" %>
@@ -83,8 +83,7 @@
                 <% end %>
                 <% end %>
         </div>
-        
-    </div>
+</div>
   
             <%= f.submit class:"button is-link is-pulled-right mb-6" %>
         <%end%> <!--Form End-->

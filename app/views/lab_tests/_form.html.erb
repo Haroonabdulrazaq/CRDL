@@ -16,38 +16,28 @@
       </div>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="columns is-centered is-vcentered">
+    <div class="column is-4">
+    
+        <%= form.text_field :title, class: "input mb-4", placeholder:"Title"%>
+      
+        <%= form.number_field :quantity, class: "input mb-4", placeholder:"Quantity. eg: 7" %>
+      
+    </div>
+    <div class="column is-4">
+      <%= form.number_field :price_per_unit, class: "input mb-4", placeholder:"Price per 1 unit. eq: 1500" %>
+    
+      <%= form.text_field :department_for_test_id, class: "input mb-4", placeholder:"Department" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="columns is-centered is-vcentered">
+    <div class="column is-8">
+      <%= form.text_area :description, size:'30x4', class: "textarea is-medium", placeholder:"description" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :quantity %>
-    <%= form.text_field :quantity %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price_per_unit %>
-    <%= form.text_field :price_per_unit %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :department_for_test_id %>
-    <%= form.text_field :department_for_test_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="columns is-centered is-vcentered">
+    <div class="column is-8">
+      <%= form.submit class:"button is-link is-pulled-right mb-6" %>
+    </div>
   </div>
 <% end %>
