@@ -7,8 +7,7 @@ module SamplesHelper
                                    :description, :perishable, :retention_time, :result_due_date)
   end
 
-
-  def display_create_result_button sample
+  def display_create_result_button(sample)
     display = ''
     if can? :manage, Result
       display = "
@@ -27,18 +26,19 @@ module SamplesHelper
     display.html_safe
   end
 
-  def display_sample_control_buttons sample
+  def display_sample_control_buttons(sample)
     display = ''
     if can? :manage, Sample
       display = "
         <div class='column'>
-          #{link_to 'Delete', sample_path, class: 'button is-danger is-outlined' , method: :delete , data: {confirm: 'Are you sure you want to delete this sample?'}}
+          #{link_to 'Delete', sample_path, class: 'button is-danger is-outlined', method: :delete,
+                                           data: { confirm: 'Are you sure you want to delete this sample?' }}
         </div>
         <div class='column'>
-          #{link_to 'Edit', edit_sample_path(sample), class: 'button is-link is-outlined'}		
+          #{link_to 'Edit', edit_sample_path(sample), class: 'button is-link is-outlined'}
         </div>
       "
-    end 
-    display.html_safe   
+    end
+    display.html_safe
   end
 end
