@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module SamplesHelper
   def sample_params
     params.require(:sample).permit(:name, :Address, :institution, :phone_num, :email, :supervisor_name,
@@ -41,4 +39,19 @@ module SamplesHelper
     end
     display.html_safe
   end
+
+  def display_departments departments
+    display = ''
+    tmp = ''
+    unless departments.size.zero?
+      departments.each do |dpt|
+        tmp << "<li>#{dpt.title}</li>"
+      end
+    end
+    display = "
+    <ul>#{tmp}</ul>
+    "
+    display.html_safe
+  end
+
 end

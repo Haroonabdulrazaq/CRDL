@@ -12,6 +12,7 @@ class SamplesController < ApplicationController
 
   def new
     @sample = Sample.new
+    @departments = DepartmentForTest.all
   end
 
   def create
