@@ -11,7 +11,7 @@ module ApplicationHelper
       <div class='navbar-item dropdown'>
         <div class='dropdown-trigger'>
           <button class='button' aria-haspopup='true' aria-controls='dropdown-menu3'>
-            <span>Options</span>
+            <span>Options for sample & test</span>
             <span class='icon is-small'>
               <i class='fa fa-angle-down' aria-hidden='true'></i>
             </span>
