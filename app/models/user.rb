@@ -7,5 +7,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :department_for_tests, dependent: :destroy
-  has_many :lab_tests, dependent: :destroy
+  has_many :lab_tests#, dependent: :destroy
 end
