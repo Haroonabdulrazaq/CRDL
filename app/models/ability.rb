@@ -13,6 +13,8 @@ class Ability
       can :manage, :dashboard
     elsif user.receptionist_role?
       can :manage, Sample
+      can :manage, LabTest
+      can :manage, DepartmentForTest
       can :read, :all
     elsif user.scientist_role?
       can :manage, Result
