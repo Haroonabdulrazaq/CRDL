@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_10_060044) do
+ActiveRecord::Schema.define(version: 2021_01_10_054135) do
 
   create_table "department_for_tests", force: :cascade do |t|
     t.string "title"
@@ -24,13 +24,12 @@ ActiveRecord::Schema.define(version: 2021_01_10_060044) do
   create_table "lab_tests", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.integer "quantity"
+    t.integer "quantity", default: 1
     t.float "price_per_unit"
     t.integer "user_id", null: false
     t.integer "department_for_test_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "sample_id"
     t.index ["department_for_test_id"], name: "index_lab_tests_on_department_for_test_id"
     t.index ["user_id"], name: "index_lab_tests_on_user_id"
   end
@@ -105,7 +104,6 @@ ActiveRecord::Schema.define(version: 2021_01_10_060044) do
 
   add_foreign_key "department_for_tests", "users"
   add_foreign_key "lab_tests", "department_for_tests"
-  add_foreign_key "lab_tests", "samples"
   add_foreign_key "lab_tests", "users"
   add_foreign_key "results", "samples"
 end

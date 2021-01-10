@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class DepartmentForTestsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_department_for_test, only: %i[show edit update destroy]
 
   # GET /department_for_tests

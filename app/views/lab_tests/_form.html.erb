@@ -27,7 +27,7 @@
     <div class="column is-4">
       <%= form.number_field :price_per_unit, class: "input mb-4", placeholder:"Price per 1 unit. eq: 1500" %>
     
-      <%= form.text_field :department_for_test_id, class: "input mb-4", placeholder:"Department" %>
+      <%= form.select :department_for_test_id, options_for_select(@department_for_test_for_select), class: "input mb-4" %>
     </div>
   </div>
   <div class="columns is-centered is-vcentered">

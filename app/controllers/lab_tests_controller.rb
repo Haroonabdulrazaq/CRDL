@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class LabTestsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_lab_test, only: %i[show edit update destroy]
 
   # GET /lab_tests
@@ -16,6 +17,7 @@ class LabTestsController < ApplicationController
   # GET /lab_tests/new
   def new
     @lab_test = LabTest.new
+    @department_for_test_for_select = DepartmentForTest.all.map{ |dpt| [dpt.title, dpt.id]}
   end
 
   # GET /lab_tests/1/edit
@@ -25,6 +27,7 @@ class LabTestsController < ApplicationController
   # POST /lab_tests.json
   def create
     @lab_test = LabTest.new(lab_test_params)
+    @lab_test.user_id = current_user.id
 
     respond_to do |format|
       if @lab_test.save
@@ -70,6 +73,6 @@ class LabTestsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def lab_test_params
-    params.require(:lab_test).permit(:title, :description, :price_per_unit, :user_id, :department_for_test_id)
+    params.require(:lab_test).permit(:title, :description, :price_per_unit, :department_for_test_id)
   end
 end
