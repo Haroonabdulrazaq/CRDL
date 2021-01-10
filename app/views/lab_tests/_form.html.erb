@@ -4,9 +4,6 @@
       <div class="message-header">
         <p><%= pluralize(lab_test.errors.count, "error") %> prohibited this lab_test from being saved:</p>
       </div>
-    </div>
-
-    <div class="message is-danger">
       <div class="message-body">
         <ul>
           <% lab_test.errors.full_messages.each do |message| %>

@@ -21,13 +21,16 @@ class LabTestsController < ApplicationController
   end
 
   # GET /lab_tests/1/edit
-  def edit; end
+  def edit
+    @department_for_test_for_select = DepartmentForTest.all.map{ |dpt| [dpt.title, dpt.id]}
+  end
 
   # POST /lab_tests
   # POST /lab_tests.json
   def create
     @lab_test = LabTest.new(lab_test_params)
     @lab_test.user_id = current_user.id
+    @department_for_test_for_select = DepartmentForTest.all.map{ |dpt| [dpt.title, dpt.id]}
 
     respond_to do |format|
       if @lab_test.save
@@ -73,6 +76,6 @@ class LabTestsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def lab_test_params
-    params.require(:lab_test).permit(:title, :description, :price_per_unit, :department_for_test_id)
+    params.require(:lab_test).permit(:title, :description, :price_per_unit, :department_for_test_id, :quantity)
   end
 end
