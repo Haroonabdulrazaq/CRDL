@@ -6,8 +6,8 @@ class CreateLabTests < ActiveRecord::Migration[6.0]
       t.string :title
       t.text :description
       t.float :price_per_unit
-      t.references :users, null: false, foreign_key: true
-      t.references :department_for_tests, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
+      t.references :department_for_test, null: false, foreign_key: true
 
       t.timestamps
     end
