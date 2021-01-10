@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2021_01_10_060044) do
   create_table "lab_tests", force: :cascade do |t|
     t.string "title"
     t.text "description"
+    t.integer "quantity"
     t.float "price_per_unit"
     t.integer "user_id", null: false
     t.integer "department_for_test_id", null: false
