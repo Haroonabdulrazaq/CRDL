@@ -2,3 +2,6 @@
    Create New Sample &ndash;<%=DateTime.now.to_s(:nice_date)%> 
 <%end%>
    <%= render 'form', sample: @sample %>
+
+<%= javascript_pack_tag 'bulma-accordion', 'data-turbolinks-track': 'reload' %>
+<%= javascript_pack_tag 'dom-ready', 'data-turbolinks-track': 'reload' %>
