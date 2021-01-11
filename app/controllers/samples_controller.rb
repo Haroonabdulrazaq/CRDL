@@ -14,6 +14,7 @@ class SamplesController < ApplicationController
     @sample = Sample.new
     @departments = DepartmentForTest.all
     @lab_tests = LabTest.all
+    1.times { @sample.prices.build }
   end
 
   def create
@@ -69,6 +70,7 @@ class SamplesController < ApplicationController
   def sample_params
     params.require(:sample).permit(:name, :Address, :institution, :phone_num, :email, :supervisor_name,
                                    :supervisor_contact, :referrer, :current_status, :required_service,
-                                   :description, :perishable, :retention_time, :result_due_date, :price_id, :currency_idre)
+                                   :description, :perishable, :retention_time, :result_due_date,
+                                   prices_attributes: [lab_tests: []])
   end
 end

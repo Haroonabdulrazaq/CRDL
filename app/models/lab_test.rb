@@ -10,5 +10,5 @@ class LabTest < ApplicationRecord
   # associations
   belongs_to :user
   belongs_to :department_for_test
-  has_many :prices, dependent: :destroy
+  # belongs_to :prices
 end

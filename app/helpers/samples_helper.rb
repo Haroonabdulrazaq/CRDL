@@ -51,10 +51,10 @@ module SamplesHelper
         curr_lab_tests_to_display.each do |lab|
           tmp_lab << "
           <div class='panel-block is-size-6 columns is-full accordion-body'>
-            <div class='column is-1'><input type='checkbox' /></div>
+            <div class='column is-1'><input onclick='function clicked(event){console.log(event.target.value)}; clicked(event);' type='checkbox' value='#{lab.title}' name='#{lab.title}' /></div>
             <div class='column is-6'>#{lab.title}</div>
             <div class='column is-2'>
-              <input type='number' value='#{lab.quantity}' class='input is-small' />
+              #{form.number_field :quantity, class: 'input', value: lab.quantity}
             </div>
             <div class='column is-3'>#{lab.price_per_unit} / 1 unit</div>
           </div>
