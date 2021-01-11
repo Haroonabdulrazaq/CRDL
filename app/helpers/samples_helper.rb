@@ -40,7 +40,7 @@ module SamplesHelper
     display.html_safe
   end
 
-  def display_departments departments, lab_tests
+  def display_departments departments, lab_tests, form
     display = ''
     tmp = ''
     tmp_lab = ''
@@ -50,7 +50,14 @@ module SamplesHelper
         curr_lab_tests_to_display = lab_tests.select { |lab| lab.department_for_test_id == dpt.id}
         curr_lab_tests_to_display.each do |lab|
           tmp_lab << "
-          <p class='panel-block is-size-6'>#{lab.title}</p>
+          <div class='panel-block is-size-6'>
+            <div><input type='checkbox' /></div>
+            <div>#{lab.title}</div>
+            <div>
+              <input type='number' value='#{lab.quantity}' class='input is-small' />
+            </div>
+            <div>#{lab.price_per_unit} / 1 unit</div>
+          </div>
           "
         end
         tmp << "
