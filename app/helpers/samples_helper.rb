@@ -40,15 +40,25 @@ module SamplesHelper
     display.html_safe
   end
 
-  def display_departments departments
+  def display_departments departments, lab_tests
     display = ''
     tmp = ''
+    tmp_lab = ''
+    curr_lab_tests_to_display = []
     unless departments.size.zero?
       departments.each do |dpt|
+        curr_lab_tests_to_display = lab_tests.select { |lab| lab.department_for_test_id == dpt.id}
+        curr_lab_tests_to_display.each do |lab|
+          tmp_lab << "
+          <p class='panel-block'>#{lab.title}</p>
+          "
+        end
         tmp << "
-        <li>
-          <h1>#{dpt.title}</h1>
+        <li class='panel'>
+          <h1 class='panel-heading is-primary'>#{dpt.title}</h1>
+          <div class='panel-block'>#{tmp_lab}</div>
         </li>"
+        tmp_lab = ''
       end
     end
     display = "
