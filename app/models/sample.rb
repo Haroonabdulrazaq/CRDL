@@ -2,6 +2,7 @@
 
 class Sample < ApplicationRecord
   has_many :results, dependent: :destroy
+  has_many :prices, dependent: :destroy
 
   def self.search_by(search_term)
     where('LOWER(name) LIKE :search_term',

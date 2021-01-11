@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_10_054135) do
+ActiveRecord::Schema.define(version: 2021_01_11_074443) do
 
   create_table "department_for_tests", force: :cascade do |t|
     t.string "title"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 2021_01_10_054135) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["department_for_test_id"], name: "index_lab_tests_on_department_for_test_id"
     t.index ["user_id"], name: "index_lab_tests_on_user_id"
+  end
+
+  create_table "prices", force: :cascade do |t|
+    t.integer "sample_id", null: false
+    t.integer "lab_test_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lab_test_id"], name: "index_prices_on_lab_test_id"
+    t.index ["sample_id"], name: "index_prices_on_sample_id"
   end
 
   create_table "results", force: :cascade do |t|
@@ -105,5 +114,7 @@ ActiveRecord::Schema.define(version: 2021_01_10_054135) do
   add_foreign_key "department_for_tests", "users"
   add_foreign_key "lab_tests", "department_for_tests"
   add_foreign_key "lab_tests", "users"
+  add_foreign_key "prices", "lab_tests"
+  add_foreign_key "prices", "samples"
   add_foreign_key "results", "samples"
 end
