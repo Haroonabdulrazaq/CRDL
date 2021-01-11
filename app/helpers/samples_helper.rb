@@ -50,13 +50,13 @@ module SamplesHelper
         curr_lab_tests_to_display = lab_tests.select { |lab| lab.department_for_test_id == dpt.id}
         curr_lab_tests_to_display.each do |lab|
           tmp_lab << "
-          <div class='panel-block is-size-6'>
-            <div><input type='checkbox' /></div>
-            <div>#{lab.title}</div>
-            <div>
+          <div class='panel-block is-size-6 columns'>
+            <div class='column'><input type='checkbox' /></div>
+            <div class='column'>#{lab.title}</div>
+            <div class='column'>
               <input type='number' value='#{lab.quantity}' class='input is-small' />
             </div>
-            <div>#{lab.price_per_unit} / 1 unit</div>
+            <div class='column'>#{lab.price_per_unit} / 1 unit</div>
           </div>
           "
         end
