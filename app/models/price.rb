@@ -4,5 +4,4 @@ class Price < ApplicationRecord
 
   #Associations
   belongs_to :sample
-  # serialize :lab_tests
 end
