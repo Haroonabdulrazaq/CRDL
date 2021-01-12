@@ -88,7 +88,6 @@ module SamplesHelper
                   var textareaToUpdate = document.querySelector(\"#textarea-for-labtests\");
                   var mySelection = localStorage.getItem(\"mySelection\") ? JSON.parse(localStorage.getItem(\"mySelection\")) : [];
                   textareaToUpdate.value = JSON.stringify(mySelection);
-                  console.log(mySelection);
                 };
                 function updateSelectedItem(newQuantity){
                   var mySelection = localStorage.getItem(\"mySelection\") ? JSON.parse(localStorage.getItem(\"mySelection\")) : [];
