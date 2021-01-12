@@ -19,6 +19,8 @@ class SamplesController < ApplicationController
 
   def create
     @sample = Sample.new(sample_params)
+    @departments = DepartmentForTest.all
+    @lab_tests = LabTest.all
 
     if @sample.save
       flash[:notice] = 'Sample Created sucessfully'
