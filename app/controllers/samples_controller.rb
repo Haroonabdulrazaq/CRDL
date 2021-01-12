@@ -18,8 +18,6 @@ class SamplesController < ApplicationController
   end
 
   def create
-    # puts "These are the passed values #{sample_params['prices_attributes']['lab_tests']}"
-    # sample_params.lab_tests = sample_params.lab_tests.split
     @sample = Sample.new(sample_params)
 
     if @sample.save
