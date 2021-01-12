@@ -51,10 +51,39 @@ module SamplesHelper
         curr_lab_tests_to_display.each do |lab|
           tmp_lab << "
           <div class='panel-block is-size-6 columns is-full accordion-body'>
-            <div class='column is-1'><input onclick='function clicked(event){console.log(event.target.value)}; clicked(event);' type='checkbox' value='#{lab.title}' name='#{lab.title}' /></div>
+            <div class='column is-1'><input onclick='
+            var mySelection = localStorage.getItem(\"mySelection\") ? JSON.parse(localStorage.getItem(\"mySelection\")) : [];
+            function SelectionObject(id, title, quantity, unitPrice) {
+              this.title = title;
+              this.quantity = quantity;
+              this.unitPrice = unitPrice;
+              this.id = id;
+            }
+            function updateLocalStorage(){
+              localStorage.setItem(\"mySelection\", JSON.stringify(mySelection));
+            }
+            function addnewSelectionToStorage(selectedItem){
+              mySelection.push(selectedItem);
+              updateLocalStorage();
+            };
+            function removeSelectionFromStorage(itemToRemove){
+              mySelection = mySelection.filter(function(currVal, index, arr){
+                  return currVal.id!==itemToRemove.id; 
+                });
+              updateLocalStorage();
+            }
+            function clicked(event){
+              var clickedCheckbox = event.target;
+              var selectItem = new SelectionObject(#{lab.id},\"#{lab.title}\", #{lab.quantity}, #{lab.price_per_unit});
+              if(clickedCheckbox.checked){
+                addnewSelectionToStorage(selectItem);
+              }else{
+                removeSelectionFromStorage(selectItem);
+              }
+            }; clicked(event);' type='checkbox' value='#{lab.title}' name='#{lab.title}' /></div>
             <div class='column is-6'>#{lab.title}</div>
             <div class='column is-2'>
-              #{form.number_field :quantity, class: 'input', value: lab.quantity}
+              <input type='number' value='#{lab.quantity}' class='input is-small' />
             </div>
             <div class='column is-3'>#{lab.price_per_unit} / 1 unit</div>
           </div>
