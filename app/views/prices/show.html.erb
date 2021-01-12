@@ -6,9 +6,11 @@
 </p>
 
 <p>
-  <strong>Lab test:</strong>
-  <%= @price.lab_test_id %>
+  <strong>Lab tests:</strong>
+  <%
+    puts "This is the sent price #{@price.lab_tests}"
+  %>
 </p>
 
-<%= link_to 'Edit', edit_price_path(@price) %> |
-<%= link_to 'Back', prices_path %>
+<%= link_to 'Edit', edit_sample_price_path(@price) %> |
+<%= link_to 'Back', sample_prices_path %>
