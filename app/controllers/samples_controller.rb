@@ -18,6 +18,8 @@ class SamplesController < ApplicationController
   end
 
   def create
+    # puts "These are the passed values #{sample_params['prices_attributes']['lab_tests']}"
+    # sample_params.lab_tests = sample_params.lab_tests.split
     @sample = Sample.new(sample_params)
 
     if @sample.save
@@ -36,8 +38,8 @@ class SamplesController < ApplicationController
 
   def edit
     @sample = Sample.find(params[:id])
-    @prices_for_select = Price.all.map { |p| [p.price, p.id] }
-    @currencies_for_select = Currency.all.map { |c| [c.currency, c.id] }
+    @departments = DepartmentForTest.all
+    @lab_tests = LabTest.all
   end
 
   def update
@@ -71,6 +73,6 @@ class SamplesController < ApplicationController
     params.require(:sample).permit(:name, :Address, :institution, :phone_num, :email, :supervisor_name,
                                    :supervisor_contact, :referrer, :current_status, :required_service,
                                    :description, :perishable, :retention_time, :result_due_date,
-                                   prices_attributes: [lab_tests: []])
+                                   prices_attributes: [:lab_tests])
   end
 end

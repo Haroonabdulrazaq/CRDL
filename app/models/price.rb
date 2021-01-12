@@ -1,4 +1,4 @@
 class Price < ApplicationRecord
   belongs_to :sample
-  serialize :lab_tests, Array
+  serialize :lab_tests
 end
