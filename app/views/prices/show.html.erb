@@ -2,14 +2,12 @@
 
 <p>
   <strong>Sample:</strong>
-  <%= @price.sample_id %>
+  <%= @price.sample.name %>
 </p>
 
 <p>
   <strong>Lab tests:</strong>
-  <%
-    puts "This is the sent price #{@price.lab_tests}"
-  %>
+  <%= display_sample_prices @price%>
 </p>
 
 <%= link_to 'Edit', edit_sample_price_path(@price) %> |
