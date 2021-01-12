@@ -80,7 +80,7 @@ module SamplesHelper
               }else{
                 removeSelectionFromStorage(selectItem);
               }
-            }; clicked(event);' type='checkbox' value='#{lab.title}' name='#{lab.title}' /></div>
+            }; clicked(event);' type='checkbox' value='#{lab.title}' name='#{lab.title}' id='#{lab.id}' /></div>
             <div class='column is-6'>#{lab.title}</div>
             <div class='column is-2'>
               <input type='number' value='#{lab.quantity}' class='input is-small' />
