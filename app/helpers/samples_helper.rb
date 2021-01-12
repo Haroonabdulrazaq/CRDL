@@ -84,6 +84,12 @@ module SamplesHelper
             <div class='column is-6'>#{lab.title}</div>
             <div class='column is-2'>
               <input oninput='
+                function updateTextarea(){
+                  var textareaToUpdate = document.querySelector(\"#textarea-for-labtests\");
+                  var mySelection = localStorage.getItem(\"mySelection\") ? JSON.parse(localStorage.getItem(\"mySelection\")) : [];
+                  textareaToUpdate.value = JSON.stringify(mySelection);
+                  console.log(mySelection);
+                };
                 function updateSelectedItem(newQuantity){
                   var mySelection = localStorage.getItem(\"mySelection\") ? JSON.parse(localStorage.getItem(\"mySelection\")) : [];
                   if(mySelection.length!==0){
@@ -91,6 +97,7 @@ module SamplesHelper
                       if(currItem.id===#{lab.id}){
                         currItem.quantity = newQuantity;
                         localStorage.setItem(\"mySelection\", JSON.stringify(mySelection));
+                        updateTextarea();
                       }
                     });
                   }else{
@@ -115,6 +122,7 @@ module SamplesHelper
       end
     end
     display = "
+    #{form.text_area :lab_tests, size: '30x4', class: 'textarea', id: 'textarea-for-labtests'}
     <ul class='is-full accordions'>#{tmp}</ul>
     "
     display.html_safe
