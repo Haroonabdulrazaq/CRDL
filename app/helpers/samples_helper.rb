@@ -83,7 +83,24 @@ module SamplesHelper
             }; clicked(event);' type='checkbox' value='#{lab.title}' name='#{lab.title}' id='#{lab.id}' /></div>
             <div class='column is-6'>#{lab.title}</div>
             <div class='column is-2'>
-              <input type='number' value='#{lab.quantity}' class='input is-small' />
+              <input oninput='
+                function updateSelectedItem(newQuantity){
+                  var mySelection = localStorage.getItem(\"mySelection\") ? JSON.parse(localStorage.getItem(\"mySelection\")) : [];
+                  if(mySelection.length!==0){
+                    mySelection.forEach(function(currItem){
+                      if(currItem.id===#{lab.id}){
+                        currItem.quantity = newQuantity;
+                        localStorage.setItem(\"mySelection\", JSON.stringify(mySelection));
+                      }
+                    });
+                  }else{
+                    alert(\"There is no selection, please select the lab test you want to save!\");
+                  }
+                  console.log(mySelection);
+                };
+                function inputChanged(event){
+                  updateSelectedItem(event.target.value);
+                }; inputChanged(event);' type='number' value='#{lab.quantity}' class='input is-small' />
             </div>
             <div class='column is-3'>#{lab.price_per_unit} / 1 unit</div>
           </div>
