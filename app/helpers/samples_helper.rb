@@ -62,15 +62,22 @@ module SamplesHelper
             function updateLocalStorage(){
               localStorage.setItem(\"mySelection\", JSON.stringify(mySelection));
             }
+            function updateTextarea(){
+              var textareaToUpdate = document.querySelector(\"#textarea-for-labtests\");
+              var mySelection = localStorage.getItem(\"mySelection\") ? JSON.parse(localStorage.getItem(\"mySelection\")) : [];
+              textareaToUpdate.value = JSON.stringify(mySelection);
+            };
             function addnewSelectionToStorage(selectedItem){
               mySelection.push(selectedItem);
               updateLocalStorage();
+              updateTextarea();
             };
             function removeSelectionFromStorage(itemToRemove){
               mySelection = mySelection.filter(function(currVal, index, arr){
                   return currVal.id!==itemToRemove.id; 
                 });
               updateLocalStorage();
+              updateTextarea();
             }
             function clicked(event){
               var clickedCheckbox = event.target;
