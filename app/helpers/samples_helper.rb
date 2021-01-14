@@ -30,10 +30,14 @@ module SamplesHelper
       display = "
         <div class='column'>
           #{link_to 'Delete', sample_path, class: 'button is-danger is-outlined', method: :delete,
-                                           data: { confirm: 'Are you sure you want to delete this sample?' }}
+                                          data: { confirm: 'Are you sure you want to delete this sample?' }}
         </div>
         <div class='column'>
           #{link_to 'Edit', edit_sample_path(sample), class: 'button is-link is-outlined'}
+        </div>
+
+        <div class='column'>
+          #{link_to 'Prices', sample_prices_path(sample), class: 'button is-link is-outlined'}
         </div>
       "
     end
