@@ -12,8 +12,8 @@ module PricesHelper
         price_rows << "
           <tr>
             <td>#{curr_lab_test['title']}</td>
-            <td>#{curr_lab_test['quantity']}</td>
             <td>#{curr_lab_test['unitPrice']}</td>
+            <td>#{curr_lab_test['quantity']}</td>
             <td>#{
               total += subtotal
               subtotal
