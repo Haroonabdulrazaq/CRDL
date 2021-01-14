@@ -1,19 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<h1>All prices of <%= link_to @sample.name, sample_path(@sample) %></h1>
-
-  <tbody>
+<div class="columns mt-6 is-centered">
+  <div class="column is-half">
+    <div class="panel">
+      <div class="panel-heading">
+        <h1>All prices of <%= link_to @sample.name, sample_path(@sample) %></h1>
+      </div>
     <% @sample_prices.each do |price| %>
-      <tr>
-        <td>Price with ID <%= price.id %></td>
-        <td><%= link_to 'Show', sample_price_path(@sample, price) %></td>
-        <td><%= link_to 'Edit', edit_sample_price_path(@sample, price) %></td>
-        <td><%= link_to 'Destroy', sample_price_path(@sample, price), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <div class="panel-block">
+          <span class="mx-2"><strong>Price with ID #<%= link_to price.id, sample_price_path(@sample, price) %></strong></span>
+          <span class="mx-2 button is-primary is-small is-outlined"><%= link_to 'Edit this price', edit_sample_price_path(@sample, price) %></span>
+          <span class="mx-2 button is-danger is-small is-outlined"><%= link_to 'Delete this price', sample_price_path(@sample, price), method: :delete, data: { confirm: 'Are you sure?' } %></span>
+        </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
+    </div>
+  </div>
+</div>
 <%= link_to 'Add new price to this sample', new_sample_price_path %>
