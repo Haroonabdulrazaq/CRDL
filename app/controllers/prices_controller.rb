@@ -16,9 +16,9 @@ class PricesController < ApplicationController
   # end
 
   # GET /prices/new
-  # def new
-  #   @price = Price.new
-  # end
+  def new
+    @price = Price.new
+  end
 
   # GET /prices/1/edit
   # def edit
