@@ -32,16 +32,20 @@ module PricesHelper
         </tr>
         <tbody>#{price_rows}</tbody>
       </table>
-      <table class='table is-bordered is-striped is-narrow is-hoverable is-fullwidth'>
-        <tr>
-          <th>Total</th>
-        </tr>
-        <tbody>
-          <tr>
-            <td>#{total}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class='columns is-centered is-vcentered'>
+        <div class='column is-4'>
+          <table class='table is-bordered is-striped is-narrow is-hoverable is-fullwidth'>
+            <tr>
+              <th>Total</th>
+            </tr>
+            <tbody>
+              <tr>
+                <td>#{total}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     ".html_safe
   end
 end
