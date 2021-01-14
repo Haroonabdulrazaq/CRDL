@@ -12,9 +12,9 @@
   </thead>
 
   <tbody>
-    <% @prices.each do |price| %>
+    <% @sample_prices.each do |price| %>
       <tr>
-        <td><%= price.sample_id %></td>
+        <td><%= price.sample.name %></td>
         <td><%= price.lab_test_id %></td>
         <td><%= link_to 'Show', price %></td>
         <td><%= link_to 'Edit', edit_price_path(price) %></td>

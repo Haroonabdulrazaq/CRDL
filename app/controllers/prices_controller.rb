@@ -4,9 +4,10 @@ class PricesController < ApplicationController
 
   # GET /prices
   # GET /prices.json
-  # def index
-  #   @prices = Price.all
-  # end
+  def index
+    # @prices = Price.all
+    @sample_prices = Price.where(sample_id: params[:sample_id])
+  end
 
   # GET /prices/1
   # GET /prices/1.json
