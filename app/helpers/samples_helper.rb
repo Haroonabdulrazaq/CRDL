@@ -122,9 +122,4 @@ module SamplesHelper
     "
     display.html_safe
   end
-
-  def display_list_of_prices
-    
-  end
-
 end
