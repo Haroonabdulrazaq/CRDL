@@ -8,18 +8,7 @@ module SamplesHelper
   def display_create_result_button(sample)
     display = ''
     if can? :manage, Result
-      display = "
-      <nav class='navbar is-pulled-right'>
-        <div class='navbar-menu '>
-          <div class='navbar-item'>
-            <div class='field is-grouped '>
-              <p class='control '>
-                #{link_to 'Create Result', new_sample_result_path(sample), class: 'button is-dark'}
-              </p>
-          </div>
-        </div>
-      </nav>
-      "
+      display = "#{link_to 'Create Result', new_sample_result_path(sample), class: 'button is-dark is-fullwidth  is-small'}"
     end
     display.html_safe
   end
@@ -28,17 +17,11 @@ module SamplesHelper
     display = ''
     if can? :manage, Sample
       display = "
-        <div class='column'>
-          #{link_to 'Delete', sample_path, class: 'button is-danger is-outlined', method: :delete,
+          #{link_to 'Delete', sample_path, class: 'button is-danger is-outlined is-fullwidth my-4 is-small', method: :delete,
                                           data: { confirm: 'Are you sure you want to delete this sample?' }}
-        </div>
-        <div class='column'>
-          #{link_to 'Edit', edit_sample_path(sample), class: 'button is-link is-outlined'}
-        </div>
+          #{link_to 'Edit', edit_sample_path(sample), class: 'button is-link is-outlined is-fullwidth my-4 is-small'}
 
-        <div class='column'>
-          #{link_to 'Prices', sample_prices_path(sample), class: 'button is-link is-outlined'}
-        </div>
+          #{link_to 'Prices', sample_prices_path(sample), class: 'button is-link is-outlined is-fullwidth my-4 is-small'}
       "
     end
     display.html_safe
