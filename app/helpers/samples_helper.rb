@@ -44,14 +44,14 @@ module SamplesHelper
     display.html_safe
   end
 
-  def display_price_form departments, lab_tests, form, old_lab_tests=nil
+  def display_price_form departments, lab_tests, form, old_lab_tests = nil
     display = ''
     tmp = ''
     tmp_lab = ''
     curr_lab_tests_to_display = []
     unless departments.size.zero?
       departments.each do |dpt|
-        curr_lab_tests_to_display = lab_tests.select { |lab| lab.department_for_test_id == dpt.id}
+        curr_lab_tests_to_display = lab_tests.select { |lab| lab.department_for_test_id == dpt.id }
         curr_lab_tests_to_display.each do |lab|
           tmp_lab << "
           <div class='panel-block is-size-6 columns is-full accordion-body'>
@@ -133,7 +133,7 @@ module SamplesHelper
       end
     end
     display = "
-    #{form.text_area :lab_tests, size: '30x4', class: 'textarea', id: 'textarea-for-labtests'}
+    #{form.text_area :lab_tests, size: '30x4', class: 'textarea', id: 'textarea-for-labtests', onload: 'console.log("The teaxtarea is loaded")'}
     <ul class='is-full accordions'>#{tmp}</ul>
     "
     display.html_safe
