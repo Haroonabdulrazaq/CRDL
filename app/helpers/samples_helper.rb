@@ -117,7 +117,7 @@ module SamplesHelper
                 };
                 function inputChanged(event){
                   updateSelectedItem(event.target.value);
-                }; inputChanged(event);' type='number' value='#{lab.quantity}' class='input is-small' />
+                }; inputChanged(event);' type='number' id='#{lab.id}' value='#{lab.quantity}' class='input is-small' />
             </div>
             <div class='column is-3'>#{lab.price_per_unit} / 1 unit</div>
           </div>
