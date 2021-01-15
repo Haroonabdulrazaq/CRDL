@@ -1,2 +1,3 @@
 var editTextArea = document.getElementById("textarea-for-labtests");
-console.log(editTextArea)
+var allCheckboxes = document.querySelectorAll("input[type='checkbox']")
+console.log(editTextArea.value)
