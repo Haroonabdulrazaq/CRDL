@@ -50,17 +50,17 @@ class PricesController < ApplicationController
 
   # PATCH/PUT /prices/1
   # PATCH/PUT /prices/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @price.update(price_params)
-  #       format.html { redirect_to @price, notice: 'Price was successfully updated.' }
-  #       format.json { render :show, status: :ok, location: @price }
-  #     else
-  #       format.html { render :edit }
-  #       format.json { render json: @price.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+  def update
+    respond_to do |format|
+      if @price.update(price_params)
+        format.html { redirect_to sample_prices_path, notice: 'Price was successfully updated.' }
+        format.json { render :show, status: :ok, location: @price }
+      else
+        format.html { render :edit }
+        format.json { render json: @price.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # DELETE /prices/1
   # DELETE /prices/1.json
