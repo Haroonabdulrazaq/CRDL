@@ -7,6 +7,7 @@
       <% @sample_prices.each do |price| %>
         <div class="panel-block">
           <span class="mx-2"><strong>Price with ID #<%= link_to price.id, sample_price_path(@sample, price) %></strong></span>
+          <%= link_to 'Details', sample_price_path(@sample, price), class: 'button is-primary is-small is-outlined mx-4' %></span>
           <%= link_to 'Edit this price', edit_sample_price_path(@sample, price), class: 'button is-link is-small is-outlined mx-4' %></span>
           <%= link_to 'Delete this price', sample_price_path(@sample, price), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger is-small is-outlined' %></span>
         </div>
