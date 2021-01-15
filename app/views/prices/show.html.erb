@@ -10,8 +10,11 @@
       <%= display_sample_prices_for_lab_tests @price%>
     </div>
 
-    <%= link_to 'Edit', edit_sample_price_path(@price.sample.id, @price) %> |
-    <%= link_to 'Back', sample_prices_path %>
+    <%= link_to 'Edit',
+      edit_sample_price_path(@price.sample.id, @price),
+      class: 'button is-primary is-outlined is-small',
+      onclick: "localStorage.setItem(\"mySelection\", JSON.stringify(#{@price.lab_tests}));" %>
+    <%= link_to 'Back', sample_prices_path, class: 'button is-link is-outlined is-small' %>
 
   </div>
 
