@@ -44,7 +44,8 @@ module SamplesHelper
     display.html_safe
   end
 
-  def display_price_form departments, lab_tests, form
+  def display_price_form departments, lab_tests, form, old_lab_tests=nil
+    puts "These are the old lab_tests #{old_lab_tests}"
     display = ''
     tmp = ''
     tmp_lab = ''
