@@ -1,6 +1,8 @@
-<h1>Editing Price</h1>
 
+<div class="columns mt-6 is-centered">
+    <div class="column is-4 has-text-centered">
+        <%= link_to 'Details', sample_price_path(@sample_id, @price), class: 'button is-primary is-outlined is-small' %>
+        <%= link_to 'Back to prices list', sample_prices_path, class: 'button is-link is-outlined is-small' %>
+    </div>
+</div>
 <%= render 'form', price: @price %>
-
-<%= link_to 'Show', sample_price_path(@sample_id, @price) %> |
-    <%= link_to 'Back', sample_prices_path %>
