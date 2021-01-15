@@ -18,6 +18,9 @@ class PricesController < ApplicationController
   # GET /prices/new
   def new
     @price = Price.new
+    # @price.sample_id = params[:sample_id]
+    @departments = DepartmentForTest.all
+    @lab_tests = LabTest.all
   end
 
   # GET /prices/1/edit

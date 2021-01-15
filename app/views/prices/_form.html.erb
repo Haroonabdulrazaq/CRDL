@@ -1,4 +1,4 @@
-<%= form_with(model: price, local: true) do |form| %>
+<%= form_with(model: price, url: new_sample_price_path,local: true) do |form| %>
   <% if price.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(price.errors.count, "error") %> prohibited this price from being saved:</h2>
@@ -14,7 +14,7 @@
   
     <div class="columns is-centered is-vcentered">
         <div class="column is-8">
-          <%= display_departments @departments, @lab_tests, form %>
+          <%= display_price_form @departments, @lab_tests, form %>
         </div>
     </div>
 

@@ -44,7 +44,7 @@ module SamplesHelper
     display.html_safe
   end
 
-  def display_departments departments, lab_tests, form
+  def display_price_form departments, lab_tests, form
     display = ''
     tmp = ''
     tmp_lab = ''
