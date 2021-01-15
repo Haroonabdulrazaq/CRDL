@@ -87,6 +87,7 @@
 
     <div class="columns is-centered is-vcentered">
         <div class="column is-8">
+            <h1 class="is-size-3 has-text-centered">Add tests</h1>
             <%=f.fields_for :prices do |prices_form|%>
                 <%= display_price_form @departments, @lab_tests, prices_form %>
             <%end%>
