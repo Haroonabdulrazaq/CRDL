@@ -23,8 +23,11 @@ class PricesController < ApplicationController
   end
 
   # GET /prices/1/edit
-  # def edit
-  # end
+  def edit
+    @sample_id = params[:sample_id]
+    @departments = DepartmentForTest.all
+    @lab_tests = LabTest.all
+  end
 
   # POST /prices
   # POST /prices.json

@@ -2,5 +2,6 @@
 
 <%= render 'form', price: @price %>
 
-<%= link_to 'Show', @price %> |
-<%= link_to 'Back', prices_path %>
+<%= link_to 'Show', sample_price_path(@sample_id, @price) %> |
+    <%= link_to 'Back', sample_prices_path %>
+<%= link_to 'Edit', edit_sample_price_path(@price) %> |
