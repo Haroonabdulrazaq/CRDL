@@ -1,8 +1,8 @@
 <div class="columns mt-6 is-centered">
   <div class="column is-half">
-    <div class="panel">
-      <div class="panel-heading">
-        <h1>All prices of <%= link_to @sample.name, sample_path(@sample) %></h1>
+    <div class="panel is-link">
+      <div class="panel-heading has-text-centered">
+        <h1>All prices of <%= link_to @sample.name, sample_path(@sample), class: 'has-text-warning' %></h1>
       </div>
       <% @sample_prices.each do |price| %>
         <div class="panel-block">
@@ -12,7 +12,7 @@
         </div>
       <% end %>
       <div class="panel-block">
-        <span class="button is-link is-outlined is-pulled-right">
+        <span class="button is-link is-outlined is-fullwidth is-dark">
           <%= link_to 'Add new price', new_sample_price_path %>
         </span>
       </div>
