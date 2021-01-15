@@ -8,7 +8,7 @@ module SamplesHelper
   def display_create_result_button(sample)
     display = ''
     if can? :manage, Result
-      display = "#{link_to 'Create Result', new_sample_result_path(sample), class: 'button is-dark is-fullwidth  is-small'}"
+      display = "#{link_to 'Add new Result', new_sample_result_path(sample), class: 'button is-dark is-fullwidth  is-small is-outlined'}"
     end
     display.html_safe
   end
@@ -17,11 +17,10 @@ module SamplesHelper
     display = ''
     if can? :manage, Sample
       display = "
-          #{link_to 'Delete', sample_path, class: 'button is-danger is-outlined is-fullwidth my-4 is-small', method: :delete,
+          #{link_to 'Edit this sample', edit_sample_path(sample), class: 'button is-link is-outlined is-fullwidth my-4 is-small'}
+          #{link_to 'Read all Prices', sample_prices_path(sample), class: 'button is-link is-outlined is-fullwidth my-4 is-small'}
+          #{link_to 'Delete this sample', sample_path, class: 'button is-danger is-outlined is-fullwidth my-4 is-small', method: :delete,
                                           data: { confirm: 'Are you sure you want to delete this sample?' }}
-          #{link_to 'Edit', edit_sample_path(sample), class: 'button is-link is-outlined is-fullwidth my-4 is-small'}
-
-          #{link_to 'Prices', sample_prices_path(sample), class: 'button is-link is-outlined is-fullwidth my-4 is-small'}
       "
     end
     display.html_safe

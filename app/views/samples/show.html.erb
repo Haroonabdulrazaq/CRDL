@@ -18,9 +18,9 @@
 			<p class="panel-block"><span class="label mr-4">Retention time</span><%= @sample.retention_time %></p>
 		</nav>
 	</div>
-	<div class="column is-2">
-		<%= display_sample_control_buttons @sample %>
-		<%= link_to 'Results', sample_results_path(@sample), class: 'button is-link is-outlined is-fullwidth my-4 is-small'%>
-		<%= display_create_result_button @sample %>		
+	<div class="column is-2 mx-4">
+		<%= link_to 'Read all results', sample_results_path(@sample), class: 'button is-link is-outlined is-fullwidth my-4 is-small'%>
+		<%= display_create_result_button @sample %>	
+		<%= display_sample_control_buttons @sample %>	
   </div>
 </div>
