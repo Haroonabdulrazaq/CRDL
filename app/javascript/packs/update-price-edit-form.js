@@ -3,6 +3,8 @@ var inputsArr = document.querySelectorAll("input[type='number']");
 var checkboxesArr = document.querySelectorAll("input[type='checkbox']");
 var oldLabTestsArr = JSON.parse(oldLabTests);
 
+localStorage.setItem("mySelection", JSON.stringify(oldLabTestsArr));
+
 oldLabTestsArr.forEach(function(currTest) {
   checkboxesArr.forEach(function(currCheckbox) {
     if(currCheckbox.id == currTest.id){
