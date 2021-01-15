@@ -1,6 +1,6 @@
 class PricesController < ApplicationController
   before_action :set_price, only: [:show, :edit, :update, :destroy]
-  before_action :convert_price_from_string_to_array, only: [:create]
+  # before_action :convert_price_from_string_to_array, only: [:create]
 
   # GET /prices
   # GET /prices.json
@@ -18,7 +18,6 @@ class PricesController < ApplicationController
   # GET /prices/new
   def new
     @price = Price.new
-    # @price.sample_id = params[:sample_id]
     @departments = DepartmentForTest.all
     @lab_tests = LabTest.all
   end
@@ -29,19 +28,22 @@ class PricesController < ApplicationController
 
   # POST /prices
   # POST /prices.json
-  # def create
-  #   @price = Price.new(price_params)
+  def create
+    @price = Price.new(price_params)
+    @price.sample_id = params[:sample_id]
+    @departments = DepartmentForTest.all
+    @lab_tests = LabTest.all
 
-  #   respond_to do |format|
-  #     if @price.save
-  #       format.html { redirect_to @price, notice: 'Price was successfully created.' }
-  #       format.json { render :show, status: :created, location: @price }
-  #     else
-  #       format.html { render :new }
-  #       format.json { render json: @price.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+    respond_to do |format|
+      if @price.save
+        format.html { redirect_to sample_prices_path, notice: 'Price was successfully created.' }
+        format.json { render :show, status: :created, location: @price }
+      else
+        format.html { render :new }
+        format.json { render json: @price.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # PATCH/PUT /prices/1
   # PATCH/PUT /prices/1.json
@@ -75,7 +77,7 @@ class PricesController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
-    # def price_params
-    #   params.require(:price).permit(:sample_id, :lab_test_id)
-    # end
+    def price_params
+      params.require(:price).permit(:lab_tests)
+    end
 end
