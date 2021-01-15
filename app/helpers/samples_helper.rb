@@ -132,7 +132,7 @@ module SamplesHelper
       end
     end
     display = "
-    #{form.text_area :lab_tests, size: '30x4' ,class: 'textarea', id: 'textarea-for-labtests'}
+    #{form.hidden_field :lab_tests, size: '30x4' ,class: 'textarea', id: 'textarea-for-labtests'}
     <ul class='is-full accordions'>#{tmp}</ul>
     "
     display.html_safe
