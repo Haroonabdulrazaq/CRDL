@@ -114,7 +114,6 @@ module SamplesHelper
                   }else{
                     alert(\"There is no selection, please select the lab test you want to save!\");
                   }
-                  console.log(mySelection);
                 };
                 function inputChanged(event){
                   updateSelectedItem(event.target.value);
