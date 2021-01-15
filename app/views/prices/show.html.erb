@@ -10,7 +10,7 @@
       <%= display_sample_prices_for_lab_tests @price%>
     </div>
 
-    <%= link_to 'Edit', edit_sample_price_path(@price) %> |
+    <%= link_to 'Edit', edit_sample_price_path(@price.sample.id, @price) %> |
     <%= link_to 'Back', sample_prices_path %>
 
   </div>

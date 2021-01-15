@@ -1,6 +1,5 @@
 class PricesController < ApplicationController
   before_action :set_price, only: [:show, :edit, :update, :destroy]
-  # before_action :convert_price_from_string_to_array, only: [:create]
 
   # GET /prices
   # GET /prices.json
@@ -12,8 +11,8 @@ class PricesController < ApplicationController
 
   # GET /prices/1
   # GET /prices/1.json
-  # def show
-  # end
+  def show
+  end
 
   # GET /prices/new
   def new
@@ -76,7 +75,6 @@ class PricesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_price
       @price = Price.find(params[:id])
-      puts "The set price is #{@price.lab_tests.class}"
     end
 
     # Only allow a list of trusted parameters through.
