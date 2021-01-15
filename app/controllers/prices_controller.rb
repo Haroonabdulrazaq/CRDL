@@ -61,13 +61,13 @@ class PricesController < ApplicationController
 
   # DELETE /prices/1
   # DELETE /prices/1.json
-  # def destroy
-  #   @price.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to prices_url, notice: 'Price was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
+  def destroy
+    @price.destroy
+    respond_to do |format|
+      format.html { redirect_to sample_prices_path, notice: 'Price was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
