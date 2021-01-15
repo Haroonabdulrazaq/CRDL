@@ -45,7 +45,6 @@ module SamplesHelper
   end
 
   def display_price_form departments, lab_tests, form, old_lab_tests=nil
-    puts "These are the old lab_tests #{old_lab_tests}"
     display = ''
     tmp = ''
     tmp_lab = ''
@@ -56,43 +55,44 @@ module SamplesHelper
         curr_lab_tests_to_display.each do |lab|
           tmp_lab << "
           <div class='panel-block is-size-6 columns is-full accordion-body'>
-            <div class='column is-1'><input onclick='
-            var mySelection = localStorage.getItem(\"mySelection\") ? JSON.parse(localStorage.getItem(\"mySelection\")) : [];
-            function SelectionObject(id, title, quantity, unitPrice) {
-              this.title = title;
-              this.quantity = quantity;
-              this.unitPrice = unitPrice;
-              this.id = id;
-            }
-            function updateLocalStorage(){
-              localStorage.setItem(\"mySelection\", JSON.stringify(mySelection));
-            }
-            function updateTextarea(){
-              var textareaToUpdate = document.querySelector(\"#textarea-for-labtests\");
+            <div class='column is-1'>
+            <input onclick='
               var mySelection = localStorage.getItem(\"mySelection\") ? JSON.parse(localStorage.getItem(\"mySelection\")) : [];
-              textareaToUpdate.value = JSON.stringify(mySelection);
-            };
-            function addnewSelectionToStorage(selectedItem){
-              mySelection.push(selectedItem);
-              updateLocalStorage();
-              updateTextarea();
-            };
-            function removeSelectionFromStorage(itemToRemove){
-              mySelection = mySelection.filter(function(currVal, index, arr){
-                  return currVal.id!==itemToRemove.id; 
-                });
-              updateLocalStorage();
-              updateTextarea();
-            }
-            function clicked(event){
-              var clickedCheckbox = event.target;
-              var selectItem = new SelectionObject(#{lab.id},\"#{lab.title}\", #{lab.quantity}, #{lab.price_per_unit});
-              if(clickedCheckbox.checked){
-                addnewSelectionToStorage(selectItem);
-              }else{
-                removeSelectionFromStorage(selectItem);
+              function SelectionObject(id, title, quantity, unitPrice) {
+                this.title = title;
+                this.quantity = quantity;
+                this.unitPrice = unitPrice;
+                this.id = id;
               }
-            }; clicked(event);' type='checkbox' value='#{lab.title}' name='#{lab.title}' id='#{lab.id}' /></div>
+              function updateLocalStorage(){
+                localStorage.setItem(\"mySelection\", JSON.stringify(mySelection));
+              }
+              function updateTextarea(){
+                var textareaToUpdate = document.querySelector(\"#textarea-for-labtests\");
+                var mySelection = localStorage.getItem(\"mySelection\") ? JSON.parse(localStorage.getItem(\"mySelection\")) : [];
+                textareaToUpdate.value = JSON.stringify(mySelection);
+              };
+              function addnewSelectionToStorage(selectedItem){
+                mySelection.push(selectedItem);
+                updateLocalStorage();
+                updateTextarea();
+              };
+              function removeSelectionFromStorage(itemToRemove){
+                mySelection = mySelection.filter(function(currVal, index, arr){
+                    return currVal.id!==itemToRemove.id; 
+                  });
+                updateLocalStorage();
+                updateTextarea();
+              }
+              function clicked(event){
+                var clickedCheckbox = event.target;
+                var selectItem = new SelectionObject(#{lab.id},\"#{lab.title}\", #{lab.quantity}, #{lab.price_per_unit});
+                if(clickedCheckbox.checked){
+                  addnewSelectionToStorage(selectItem);
+                }else{
+                  removeSelectionFromStorage(selectItem);
+                }
+              }; clicked(event);' type='checkbox' value='#{lab.title}' name='#{lab.title}' id='#{lab.id}' /></div>
             <div class='column is-6'>#{lab.title}</div>
             <div class='column is-2'>
               <input oninput='
