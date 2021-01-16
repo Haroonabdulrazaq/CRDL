@@ -1,6 +1,11 @@
-<h1>Editing Lab Test</h1>
+<%content_for :title do %>
+   Editing Lab Test &ndash;<%=DateTime.now.to_s(:nice_date)%> 
+<%end%>
+
+<div class="mt-6">
 
 <%= render 'form', lab_test: @lab_test %>
 
-<%= link_to 'Show', @lab_test %> |
-<%= link_to 'Back', lab_tests_path %>
+<%= link_to 'Show', @lab_test, class: 'button is-primary is-outlined is-small' %>
+<%= link_to 'Back', lab_tests_path, class: 'button is-link is-outlined is-small' %>
+</div>
