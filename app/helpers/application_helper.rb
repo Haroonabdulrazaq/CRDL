@@ -44,6 +44,22 @@ module ApplicationHelper
                   <span>New dpt for test</span>".html_safe
                 end}
               </span>
+              <span class='dropdown-item'>
+              #{link_to lab_tests_path do
+                "<span class='icon'>
+                  <i class='fa fa-book is-3' arial-hidden='true'></i>
+                  </span>
+                  <span>View all lab tests</span>".html_safe
+                end}
+              </span>
+              <span class='dropdown-item'>
+              #{link_to department_for_tests_path do
+                "<span class='icon'>
+                  <i class='fa fa-book is-3' arial-hidden='true'></i>
+                  </span>
+                  <span>View all dpts. for lab tests</span>".html_safe
+                end}
+              </span>
           </div>
         </div>
       </div>".html_safe
