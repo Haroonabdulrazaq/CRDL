@@ -107,7 +107,7 @@ module SamplesHelper
           "
         end
         tmp << "
-        <li class='panel is-full accordion'>
+        <li class='panel is-full is-link accordion'>
           <h1 class='panel-heading is-primary accordion-header'>#{dpt.title}</h1>
           #{tmp_lab}
         </li>"
