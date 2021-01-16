@@ -12,15 +12,15 @@
 
 <div clss="columns is-centered is-vcentered">
   <div class="column is-6">
-    <div class="panel is-link">
-    <table class="table">
+    <div class="panel is-link is-centered">
+      <table class="table is-striped is-narrow is-hoverable is-fullwidth">
         <thead class="panel-heading has-text-centered">
-          <tr>
-            <th>Title</th>
-            <th>Price per unit</th>
-            <th>Created by</th>
-            <th>Department for test</th>
-            <th colspan="3"></th>
+          <tr class="is-size-6">
+            <th class="has-text-white">Title</th>
+            <th class="has-text-white">Price per unit</th>
+            <th class="has-text-white">Created by</th>
+            <th class="has-text-white">Department for test</th>
+            <th colspan="3" class="has-text-white">Actions</th>
           </tr>
         </thead>
         <tbody class="panel-body">
@@ -32,11 +32,11 @@
               <td><%= lab_test.department_for_test.title %></td>
               <td><%= link_to 'Show', lab_test %></td>
               <td><%= link_to 'Edit', edit_lab_test_path(lab_test) %></td>
-              <td><%= link_to 'Destroy', lab_test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Delete', lab_test, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger is-small is-outlined' %></td>
             </tr>
           <% end %>
         </tbody>
-    </table>
+      </table>
     </div>
   </div>
 </div>
