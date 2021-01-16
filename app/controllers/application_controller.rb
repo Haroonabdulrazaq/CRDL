@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  # def current_sample
-  #   @current_sample = @sample.id
-  # end
   protect_from_forgery with: :exception
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?

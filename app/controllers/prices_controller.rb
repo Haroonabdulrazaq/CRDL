@@ -1,4 +1,5 @@
 class PricesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_price, only: [:show, :edit, :update, :destroy]
 
   # GET /prices
