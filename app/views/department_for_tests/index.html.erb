@@ -1,27 +1,30 @@
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="columns is-centered is-vcentered">
+  <div class="column is-6">
+    <div class="panel is-link">
+      <div class="column is-4">
+        <%= link_to 'Create a New Department For Test', new_department_for_test_path, class: 'button is-link is-outlined is-small is-dark' %>
+      </div>
+      <table class="column table is-striped is-narrow is-hoverable is-fullwidth">
+        <thead class="panel-heading has-text-centered">
+          <tr class="is-size-6">
+            <th class="has-text-white">Title</th>
+            <th class="has-text-white">Created by</th>
+            <th class="has-text-white" colspan="3">Actions</th>
+          </tr>
+        </thead>
 
-  <tbody>
-    <% @department_for_tests.each do |department_for_test| %>
-      <tr>
-        <td><%= department_for_test.title %></td>
-        <td><%= department_for_test.description %></td>
-        <td><%= department_for_test.user_id %></td>
-        <td><%= link_to 'Show', department_for_test %></td>
-        <td><%= link_to 'Edit', edit_department_for_test_path(department_for_test) %></td>
-        <td><%= link_to 'Destroy', department_for_test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Department For Test', new_department_for_test_path %>
+        <tbody class="panel-body">
+          <% @department_for_tests.each do |department_for_test| %>
+            <tr>
+              <td><%= department_for_test.title %></td>
+              <td><%= department_for_test.user.username %></td>
+              <td><%= link_to 'Details', department_for_test, class: 'button is-primary is-small is-outlined mx-4'  %></td>
+              <td><%= link_to 'Edit', edit_department_for_test_path(department_for_test), class: 'button is-link is-small is-outlined mx-4'  %></td>
+              <td><%= link_to 'Destroy', department_for_test, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger is-small is-outlined' %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
