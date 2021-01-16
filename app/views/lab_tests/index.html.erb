@@ -30,7 +30,7 @@
               <td><%= lab_test.price_per_unit %></td>
               <td><%= lab_test.user.username %></td>
               <td><%= lab_test.department_for_test.title %></td>
-              <td><%= link_to 'Show', lab_test %></td>
+              <td><%= link_to 'Details', lab_test, class: 'button is-primary is-small is-outlined mx-4' %></td>
               <td><%= link_to 'Edit', edit_lab_test_path(lab_test) %></td>
               <td><%= link_to 'Delete', lab_test, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger is-small is-outlined' %></td>
             </tr>
