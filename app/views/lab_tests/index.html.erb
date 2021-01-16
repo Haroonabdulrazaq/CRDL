@@ -8,12 +8,13 @@
 
 <br>
 
-<%= link_to 'New Lab Test', new_lab_test_path %>
-
 <div clss="columns is-centered is-vcentered">
-  <div class="column is-6">
+  <div class="column is-9">
     <div class="panel is-link is-centered">
-      <table class="table is-striped is-narrow is-hoverable is-fullwidth">
+    <div class="column is-4 is-pulled-right">
+      <%= link_to 'Create a New Lab Test', new_lab_test_path, class: 'button is-link is-outlined is-fullwidth is-dark' %>
+    </div>
+      <table class="column table is-striped is-narrow is-hoverable is-fullwidth">
         <thead class="panel-heading has-text-centered">
           <tr class="is-size-6">
             <th class="has-text-white">Title</th>
