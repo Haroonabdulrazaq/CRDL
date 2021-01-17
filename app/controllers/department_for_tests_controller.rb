@@ -30,7 +30,7 @@ class DepartmentForTestsController < ApplicationController
 
     respond_to do |format|
       if @department_for_test.save
-        format.html { redirect_to @department_for_test, notice: 'Department for test was successfully created.' }
+        format.html { redirect_to department_for_tests_path, notice: 'Department for test was successfully created.' }
         format.json { render :show, status: :created, location: @department_for_test }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class DepartmentForTestsController < ApplicationController
   def update
     respond_to do |format|
       if @department_for_test.update(department_for_test_params)
-        format.html { redirect_to @department_for_test, notice: 'Department for test was successfully updated.' }
+        format.html { redirect_to department_for_tests_path, notice: 'Department for test was successfully updated.' }
         format.json { render :show, status: :ok, location: @department_for_test }
       else
         format.html { render :edit }
