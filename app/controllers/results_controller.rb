@@ -17,6 +17,7 @@ class ResultsController < ApplicationController
     @result = @sample.results.new(result_params)
     # @result = Result.new(result_params)
     if @result.save
+      ResultMailer.with(result: @result).new_result_email.deliver_later
       flash[:notice] = 'Result created sucessfully'
       redirect_to sample_result_path(@result.sample_id, @result)
     else
