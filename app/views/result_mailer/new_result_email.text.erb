@@ -1,7 +1,5 @@
 You got a new result to the sample you sent from <%= @result.sample.name %>!</p>
     
-Result details<br>
---------------------------
-
 Sample Name: <%= @result.sample.name %>
-Email: <%= @result.sample.email %>
+To vew more details of this result click on the following link: <%= link_to 'new result link', sample_result_url(@result.sample_id, @result) %>
+    

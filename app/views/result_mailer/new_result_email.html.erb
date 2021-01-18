@@ -4,13 +4,11 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <p>You got a new result to the sample you sent from <%= @result.sample.name %>!</p>
+    <p>You got a new result to the sample you sent from <strong> <%= @result.sample.name %></strong>!</p>
     <p>
-    Result details<br>
-    --------------------------
+    <h1>Sample Name: <%= @result.sample.name %></h1>
+    <h2>To vew more details of this result click on the following link: <%= link_to 'new result link', sample_result_url(@result.sample_id, @result) %></h2>
     </p>
-    <p>Sample Name: <%= @result.sample.name %></p>
-    <p>Email: <%= @result.sample.email %></p>
     <p>
   </body>
 </html>
