@@ -6,8 +6,7 @@
   <body>
     <h1>This email has been sent to you sent from <strong>CRDL</strong>!</h1>
     <p>
-    <h2>Sample Name: <%= @result.sample.name %></h2>
-    <h3>To vew more details of this result click on the following link: <%= link_to 'new result link', sample_result_url(@result.sample_id, @result) %></h3>
+    <h3>To vew more details of this result click on the following link: <%= link_to 'result link', sample_result_url(email_params.result.sample_id, email_params.result) %></h3>
     </p>
     <p>
   </body>

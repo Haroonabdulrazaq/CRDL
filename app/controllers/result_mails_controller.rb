@@ -28,7 +28,9 @@ class ResultMailsController < ApplicationController
   def create
     @result_mail = ResultMail.new(result_mail_params)
     @result_mail.user_id = current_user.id
-    ResultMailer.with(email_params: [result_mail_params, ]).new_result_email.deliver_later
+    @email_recipient_select = Sample.all.map { |rcp| [ rcp.email, rcp.email ]}
+    @result_select = Result.all.map { |rslt| [ rslt.id, rslt.id ]}
+    ResultMailer.with(email_params: result_mail_params).new_result_email.deliver_later
 
     respond_to do |format|
       if @result_mail.save
