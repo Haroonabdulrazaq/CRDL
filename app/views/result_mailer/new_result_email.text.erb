@@ -1,5 +1,5 @@
-You got a new result to the sample you sent from <%= @result.sample.name %>!</p>
-    
-Sample Name: <%= @result.sample.name %>
-To vew more details of this result click on the following link: <%= link_to 'new result link', sample_result_url(@result.sample_id, @result) %>
-    
+You got a new email from CRDL related <%= link_to 'this result', sample_result_url(@result.sample_id, @result) %> for sample: <%= @result.sample.name %>
+
+To read more details of this result click on the following link: <%= link_to 'result link', sample_result_url(@result.sample_id, @result) %>
+
+<%= @email_params[:email_message] %>
