@@ -25,6 +25,7 @@ class ResultMailsController < ApplicationController
   # POST /result_mails.json
   def create
     @result_mail = ResultMail.new(result_mail_params)
+    ResultMailer.with(email_params: result_mail_params).new_result_email.deliver_later
 
     respond_to do |format|
       if @result_mail.save
