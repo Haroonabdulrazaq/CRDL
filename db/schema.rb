@@ -12,43 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2021_01_19_062611) do
 
-  create_table "department_for_tests", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.integer "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_department_for_tests_on_user_id"
-  end
-
-  create_table "lab_tests", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.integer "quantity", default: 1
-    t.float "price_per_unit"
-    t.integer "user_id", null: false
-    t.integer "department_for_test_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["department_for_test_id"], name: "index_lab_tests_on_department_for_test_id"
-    t.index ["user_id"], name: "index_lab_tests_on_user_id"
-  end
-
-  create_table "prices", force: :cascade do |t|
-    t.integer "sample_id", null: false
-    t.string "lab_tests"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["sample_id"], name: "index_prices_on_sample_id"
-  end
-
   create_table "result_mails", force: :cascade do |t|
     t.string "recipient_email"
     t.string "email_object"
     t.text "email_message"
     t.integer "user_id", null: false
+    t.integer "result_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["result_id"], name: "index_result_mails_on_result_id"
     t.index ["user_id"], name: "index_result_mails_on_user_id"
   end
 
@@ -120,10 +92,7 @@ ActiveRecord::Schema.define(version: 2021_01_19_062611) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "department_for_tests", "users"
-  add_foreign_key "lab_tests", "department_for_tests"
-  add_foreign_key "lab_tests", "users"
-  add_foreign_key "prices", "samples"
+  add_foreign_key "result_mails", "results"
   add_foreign_key "result_mails", "users"
   add_foreign_key "results", "samples"
 end
