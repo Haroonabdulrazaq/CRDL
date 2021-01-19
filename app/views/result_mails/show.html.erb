@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Recipient email:</strong>
+  <%= @result_mail.recipient_email %>
+</p>
+
+<p>
+  <strong>Email object:</strong>
+  <%= @result_mail.email_object %>
+</p>
+
+<p>
+  <strong>Email message:</strong>
+  <%= @result_mail.email_message %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @result_mail.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_result_mail_path(@result_mail) %> |
+<%= link_to 'Back', result_mails_path %>
