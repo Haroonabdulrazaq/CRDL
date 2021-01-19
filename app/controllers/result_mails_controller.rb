@@ -28,7 +28,7 @@ class ResultMailsController < ApplicationController
   def create
     @result_mail = ResultMail.new(result_mail_params)
     @result_mail.user_id = current_user.id
-    ResultMailer.with(email_params: result_mail_params).new_result_email.deliver_later
+    ResultMailer.with(email_params: [result_mail_params, ]).new_result_email.deliver_later
 
     respond_to do |format|
       if @result_mail.save
@@ -73,6 +73,6 @@ class ResultMailsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def result_mail_params
-      params.require(:result_mail).permit(:recipient_email, :email_object, :email_message, :user_id)
+      params.require(:result_mail).permit(:recipient_email, :email_object, :email_message, :result_id)
     end
 end
