@@ -6,4 +6,5 @@ class ResultMail < ApplicationRecord
 
   #associations
   belongs_to :user
+  belongs_to :result
 end

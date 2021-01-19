@@ -8,4 +8,6 @@ class User < ApplicationRecord
 
   has_many :department_for_tests, dependent: :destroy
   has_many :lab_tests#, dependent: :destroy
+  
+  has_many :result_mails, dependent: :destroy
 end
