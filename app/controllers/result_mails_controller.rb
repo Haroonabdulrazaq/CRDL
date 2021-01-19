@@ -15,6 +15,8 @@ class ResultMailsController < ApplicationController
   # GET /result_mails/new
   def new
     @result_mail = ResultMail.new
+    @email_recipient_select = Sample.all.map { |rcp| [ rcp.email, rcp.email ]}
+    @result_select = Result.all.map { |rslt| [ rslt.id, rslt.id ]}
   end
 
   # GET /result_mails/1/edit
@@ -25,6 +27,7 @@ class ResultMailsController < ApplicationController
   # POST /result_mails.json
   def create
     @result_mail = ResultMail.new(result_mail_params)
+    @result_mail.user_id = current_user.id
     ResultMailer.with(email_params: result_mail_params).new_result_email.deliver_later
 
     respond_to do |format|
