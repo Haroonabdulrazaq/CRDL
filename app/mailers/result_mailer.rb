@@ -3,6 +3,6 @@ class ResultMailer < ApplicationMailer
     @email_params = params[:email_params]
     @result = Result.find(@email_params[:result_id])
 
-    mail(to: @email_params[:recipient_email], subject: "You got a new email from CRDL related to result # #{@result.id} for sample: #{@result.sample.name}!")
+    mail(to: @email_params[:recipient_email], subject: @email_params[:email_object])
   end
 end

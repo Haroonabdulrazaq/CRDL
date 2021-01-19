@@ -4,10 +4,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>This email has been sent to you sent from <strong>CRDL</strong>!</h1>
+    <h1>You got a new email from CRDL related <%= link_to 'this result', sample_result_url(@result.sample_id, @result)}%> for sample: <strong><%= @result.sample.name%></strong>!</h1>
     <p>
-    <h3>To vew more details of this result click on the following link: <%= link_to 'result link', sample_result_url(@result.sample_id, @result) %></h3>
+      <h2>To read more details of this result click on the following link: <%= link_to 'result link', sample_result_url(@result.sample_id, @result) %></h2>
     </p>
     <p>
+
+    </p>
   </body>
 </html>
