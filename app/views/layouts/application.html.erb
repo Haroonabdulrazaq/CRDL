@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'bulma-accordion', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -24,6 +25,8 @@
   <div class="container">
     <%= yield %>
   </div>
-
+    <%= javascript_pack_tag 'update-price-edit-form', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'price-form', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'dom-ready', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

@@ -59,7 +59,6 @@ class ResultsController < ApplicationController
     @polenske_value = @result_calc.Polenske_value
   end
 
-
   def destroy
     @result = Result.find(params[:id])
 

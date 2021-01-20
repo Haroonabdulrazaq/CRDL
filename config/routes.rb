@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :lab_tests
+  resources :department_for_tests
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   resources :users, only: [:show]
@@ -8,5 +10,6 @@ Rails.application.routes.draw do
   root 'samples#index'
   resources :samples do
     resources :results
+    resources :prices
   end
 end

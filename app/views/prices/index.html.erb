@@ -1,0 +1,24 @@
+<div class="columns mt-6 is-centered">
+  <div class="column is-half">
+    <div class="panel is-link">
+      <div class="panel-heading has-text-centered">
+        <h1>All prices of <%= link_to @sample.name, sample_path(@sample), class: 'has-text-warning' %></h1>
+      </div>
+      <% @sample_prices.each do |price| %>
+        <div class="panel-block">
+          <span class="mx-2"><strong>Price with ID #<%= link_to price.id, sample_price_path(@sample, price) %></strong></span>
+          <%= link_to 'Details', sample_price_path(@sample, price), class: 'button is-primary is-small is-outlined mx-4' %></span>
+          <%= link_to 'Edit this price',
+            edit_sample_price_path(@sample, price),
+            class: 'button is-link is-small is-outlined mx-4',
+            onclick: "localStorage.setItem(\"mySelection\", JSON.stringify(#{price.lab_tests}));"
+          %></span>
+          <%= link_to 'Delete this price', sample_price_path(@sample, price), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger is-small is-outlined' %></span>
+        </div>
+      <% end %>
+      <div class="panel-block">
+        <%= link_to 'Add new price', new_sample_price_path, class: 'button is-link is-outlined is-fullwidth is-dark' %>
+      </div>
+    </div>
+  </div>
+</div>

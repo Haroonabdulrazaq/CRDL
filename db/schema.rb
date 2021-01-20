@@ -10,18 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_09_065025) do
+ActiveRecord::Schema.define(version: 2021_01_11_074443) do
 
-  create_table "currencies", force: :cascade do |t|
-    t.string "currency"
+  create_table "department_for_tests", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_department_for_tests_on_user_id"
+  end
+
+  create_table "lab_tests", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "quantity", default: 1
+    t.float "price_per_unit"
+    t.integer "user_id", null: false
+    t.integer "department_for_test_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["department_for_test_id"], name: "index_lab_tests_on_department_for_test_id"
+    t.index ["user_id"], name: "index_lab_tests_on_user_id"
   end
 
   create_table "prices", force: :cascade do |t|
-    t.float "price", default: 0.0, null: false
+    t.integer "sample_id", null: false
+    t.string "lab_tests"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["sample_id"], name: "index_prices_on_sample_id"
   end
 
   create_table "results", force: :cascade do |t|
@@ -72,8 +90,6 @@ ActiveRecord::Schema.define(version: 2021_01_09_065025) do
     t.date "result_due_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "price_id"
-    t.integer "currency_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -94,7 +110,9 @@ ActiveRecord::Schema.define(version: 2021_01_09_065025) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "department_for_tests", "users"
+  add_foreign_key "lab_tests", "department_for_tests"
+  add_foreign_key "lab_tests", "users"
+  add_foreign_key "prices", "samples"
   add_foreign_key "results", "samples"
-  add_foreign_key "samples", "currencies"
-  add_foreign_key "samples", "prices"
 end

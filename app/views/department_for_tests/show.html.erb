@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @department_for_test.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @department_for_test.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @department_for_test.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_department_for_test_path(@department_for_test) %> |
+<%= link_to 'Back', department_for_tests_path %>

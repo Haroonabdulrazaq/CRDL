@@ -27,10 +27,11 @@ gem 'jbuilder', '~> 2.7'
 # Gem Hirb
 gem 'hirb', '~> 0.7.3'
 
+gem 'cancancan', '~> 3.2', '>= 3.2.1'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'rails_admin', '~> 2.0', '>= 2.0.2'
-gem 'cancancan', '~> 3.2', '>= 3.2.1'
 gem 'rails_admin_rollincode', '~> 1.3'
+gem 'json', '~> 2.5', '>= 2.5.1'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

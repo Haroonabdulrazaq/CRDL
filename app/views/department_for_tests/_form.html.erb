@@ -1,0 +1,32 @@
+<%= form_with(model: department_for_test, local: true) do |form| %>
+  <% if department_for_test.errors.any? %>
+    <div class="message is-danger">
+      <div class="message-header">
+        <p><%= pluralize(department_for_test.errors.count, "error") %> prohibited this department_for_test from being saved:</p>
+      </div>
+      <div class="message-body">
+      <ul>
+        <% department_for_test.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="columns is-centered is-vcentered">
+    <div class="column is-6">
+      <div class="field">
+        <%= form.text_field :title, class: "input mb-4", placeholder: "Title. eg: Microbiology" %>
+      </div>
+
+      <div class="field">
+        <%= form.text_area :description, size: "30x4" ,class: "textarea mb-4", placeholder: "Short description"  %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit class: "button is-link is-pulled-right"%>
+      </div>
+    </div>
+  </div>
+<% end %>

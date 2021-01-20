@@ -1,0 +1,7 @@
+<%content_for :title do %>
+   Create New Lab Test &ndash;<%=DateTime.now.to_s(:nice_date)%> 
+<%end%>
+
+<div class="mt-6">
+<%= render 'form', lab_test: @lab_test %>
+</div>

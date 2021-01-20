@@ -1,0 +1,33 @@
+<div clss="columns is-centered is-vcentered">
+  <div class="column is-9">
+    <div class="panel is-link">
+    <div class="column is-4 is-pulled-right">
+      <%= link_to 'Create a New Lab Test', new_lab_test_path, class: 'button is-link is-outlined is-fullwidth is-dark' %>
+    </div>
+      <table class="column table is-striped is-narrow is-hoverable is-fullwidth">
+        <thead class="panel-heading has-text-centered">
+          <tr class="is-size-6">
+            <th class="has-text-white">Title</th>
+            <th class="has-text-white">Price per unit</th>
+            <th class="has-text-white">Created by</th>
+            <th class="has-text-white">Department for test</th>
+            <th colspan="3" class="has-text-white">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="panel-body">
+          <% @lab_tests.each do |lab_test| %>
+            <tr>
+              <td><%= lab_test.title %></td>
+              <td><%= lab_test.price_per_unit %></td>
+              <td><%= lab_test.user.username %></td>
+              <td><%= lab_test.department_for_test.title %></td>
+              <td><%= link_to 'Details', lab_test, class: 'button is-primary is-small is-outlined mx-4' %></td>
+              <td><%= link_to 'Edit', edit_lab_test_path(lab_test), class: 'button is-link is-small is-outlined mx-4' %></td>
+              <td><%= link_to 'Delete', lab_test, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger is-small is-outlined' %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

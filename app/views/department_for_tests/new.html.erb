@@ -1,0 +1,11 @@
+<%content_for :title do %>
+   Create New Department For Test &ndash;<%=DateTime.now.to_s(:nice_date)%> 
+<%end%>
+
+<div class="mt-6">
+
+<%= render 'form', department_for_test: @department_for_test %>
+
+<%= link_to 'Back', department_for_tests_path, class: 'button is-link is-outlined is-small' %>
+
+</div>

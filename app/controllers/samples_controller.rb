@@ -12,10 +12,15 @@ class SamplesController < ApplicationController
 
   def new
     @sample = Sample.new
+    @departments = DepartmentForTest.all
+    @lab_tests = LabTest.all
+    1.times { @sample.prices.build }
   end
 
   def create
     @sample = Sample.new(sample_params)
+    @departments = DepartmentForTest.all
+    @lab_tests = LabTest.all
 
     if @sample.save
       flash[:notice] = 'Sample Created sucessfully'
@@ -33,6 +38,8 @@ class SamplesController < ApplicationController
 
   def edit
     @sample = Sample.find(params[:id])
+    @departments = DepartmentForTest.all
+    @lab_tests = LabTest.all
   end
 
   def update
@@ -65,6 +72,7 @@ class SamplesController < ApplicationController
   def sample_params
     params.require(:sample).permit(:name, :Address, :institution, :phone_num, :email, :supervisor_name,
                                    :supervisor_contact, :referrer, :current_status, :required_service,
-                                   :description, :perishable, :retention_time, :result_due_date)
+                                   :description, :perishable, :retention_time, :result_due_date,
+                                   prices_attributes: [:lab_tests])
   end
 end
