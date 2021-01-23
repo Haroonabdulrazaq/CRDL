@@ -1,54 +1,62 @@
-<%= form_with(model: result_mail, local: true) do |form| %>
-  <% if result_mail.errors.any? %>
-    <div class="message is-danger">
-      <div class="message-header">
-        <p>
-          <%= pluralize(result_mail.errors.count, "error") %> prohibited this result_mail from being saved:
-        </p>
+
+  <%= form_with(model: result_mail, local: true) do |form| %>
+    <% if result_mail.errors.any? %>
+      <div class="message is-danger">
+        <div class="message-header">
+          <p>
+            <%= pluralize(result_mail.errors.count, "error") %> prohibited this result_mail from being saved:
+          </p>
+        </div>
+        <div class="message-body">
+          <ul>
+            <% result_mail.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
       </div>
-      <div class="message-body">
-        <ul>
-          <% result_mail.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
+    <% end %>
+
+<div class="columns is-centered is-vcentered">
+  <div class="column is-4">
+    <div class="field">
+      <%= form.label :recipient_email, 'Select recipient', class: 'label' %>
+      <div class="control">
+        <div class="select">
+          <%= form.select :recipient_email, options_for_select(@email_recipient_select) %>
+        </div>
       </div>
     </div>
+  </div>
+  <div class="column is-4">
+    <div class="field">
+      <%= form.label :result_id, 'Select result', class: 'label' %>
+      <div class="control">
+        <div class="select">
+          <%= form.select :result_id, options_for_select(@result_select) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="columns is-centered is-vcentered">
+  <div class="column is-8">
+    <div class="field">
+      <%= form.label :email_object, 'Subject', class: 'label' %>
+      <div class="control">
+        <%= form.text_field :email_object, placeholder: 'example: Results are available now!',class: 'input' %>
+      </div>
+    </div>
+    <div class="field">
+      <%= form.label :email_message, class: 'label' %>
+      <div class="control">
+        <%= form.text_area :email_message, class: "textarea" %>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="actions">
+      <%= form.submit 'Send email', class: 'button is-link is-pulled-right is-small' %>
+    </div>
+  </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :recipient_email, 'Select recipient', class: 'label' %>
-    <div class="control">
-      <div class="select">
-        <%= form.select :recipient_email, options_for_select(@email_recipient_select) %>
-      </div>
-    </div>
-  </div>
-
-  <div class="field">
-    <%= form.label :result_id, 'Select result', class: 'label' %>
-    <div class="control">
-      <div class="select">
-        <%= form.select :result_id, options_for_select(@result_select) %>
-      </div>
-    </div>
-  </div>
-
-  <div class="field">
-    <%= form.label :email_object, 'Subject', class: 'label' %>
-    <div class="control">
-      <%= form.text_field :email_object, placeholder: 'example: Results are available now!',class: 'input' %>
-    </div>
-  </div>
-
-  <div class="field">
-    <%= form.label :email_message, class: 'label' %>
-    <div class="control">
-      <%= form.text_area :email_message, class: "textarea" %>
-    </div>
-  </div>
-
-  <div class="actions">
-    <%= form.submit 'Send email', class: 'button is-link is-pulled-right is-small' %>
-  </div>
-<% end %>
