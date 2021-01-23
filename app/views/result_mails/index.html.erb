@@ -1,33 +1,34 @@
-<p id="notice"><%= notice %></p>
+<%content_for :title do %>
+   List of all Result Mails &ndash;<%=DateTime.now.to_s(:nice_date)%> 
+<%end%>
+<div clss="columns is-centered is-vcentered">
+  <div class="column is-7">
+    <div class="panel is-link is-centered">
+      <div class="column is-4">
+        <%= link_to 'New Result Mail', new_result_mail_path, class: 'button is-link is-outlined is-fullwidth is-dark' %>
+      </div>
+      <table class="column table is-striped is-narrow is-hoverable is-fullwidth">
+        <thead class="panel-heading has-text-centered">
+          <tr class="is-size-6">
+            <th class="has-text-white">Recipient email</th>
+            <th class="has-text-white">Email object</th>
+            <th class="has-text-white">Sent by</th>
+            <th class="has-text-white" colspan="3">Actions</th>
+          </tr>
+        </thead>
 
-<h1>Result Mails</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Recipient email</th>
-      <th>Email object</th>
-      <th>Email message</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @result_mails.each do |result_mail| %>
-      <tr>
-        <td><%= result_mail.recipient_email %></td>
-        <td><%= result_mail.email_object %></td>
-        <td><%= result_mail.email_message %></td>
-        <td><%= result_mail.user_id %></td>
-        <td><%= link_to 'Show', result_mail %></td>
-        <td><%= link_to 'Edit', edit_result_mail_path(result_mail) %></td>
-        <td><%= link_to 'Destroy', result_mail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Result Mail', new_result_mail_path %>
+        <tbody>
+          <% @result_mails.each do |result_mail| %>
+            <tr>
+              <td><%= result_mail.recipient_email %></td>
+              <td><%= result_mail.email_object %></td>
+              <td><%= result_mail.user.username %></td>
+              <td><%= link_to 'Details', result_mail, class: 'button is-primary is-small is-outlined mx-4' %></td>
+              <td><%= link_to 'Destroy', result_mail, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger is-small is-outlined' %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
