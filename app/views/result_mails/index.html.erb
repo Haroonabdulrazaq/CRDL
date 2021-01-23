@@ -26,7 +26,7 @@
               <td><%= link_to(result_mail.result_id, sample_result_path(result_mail.result.sample_id, result_mail.result)) %></td>
               <td><%= result_mail.user.username %></td>
               <td><%= link_to 'Details', result_mail, class: 'button is-primary is-small is-outlined mx-4' %></td>
-              <td><%= link_to 'Destroy', result_mail, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger is-small is-outlined' %></td>
+              <td><%= link_to 'Delete', result_mail, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger is-small is-outlined' %></td>
             </tr>
           <% end %>
         </tbody>
