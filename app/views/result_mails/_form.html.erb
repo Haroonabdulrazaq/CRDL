@@ -1,13 +1,18 @@
 <%= form_with(model: result_mail, local: true) do |form| %>
   <% if result_mail.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(result_mail.errors.count, "error") %> prohibited this result_mail from being saved:</h2>
-
-      <ul>
-        <% result_mail.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+    <div class="message is-danger">
+      <div class="message-header">
+        <p>
+          <%= pluralize(result_mail.errors.count, "error") %> prohibited this result_mail from being saved:
+        </p>
+      </div>
+      <div class="message-body">
+        <ul>
+          <% result_mail.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
