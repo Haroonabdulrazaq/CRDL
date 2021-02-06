@@ -86,6 +86,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.7.6)
     erubi (1.10.0)
     ffi (1.14.2)
     globalid (0.4.2)
@@ -266,6 +267,7 @@ DEPENDENCIES
   cancancan (~> 3.2, >= 3.2.1)
   capybara (>= 2.15)
   devise (~> 4.7, >= 4.7.3)
+  dotenv (~> 2.7, >= 2.7.6)
   hirb (~> 0.7.3)
   jbuilder (~> 2.7)
   json (~> 2.5, >= 2.5.1)
