@@ -1,0 +1,9 @@
+<%content_for :title do %>
+   Send a New Result Mail &ndash;<%=DateTime.now.to_s(:nice_date)%> 
+<%end%>
+
+<div class="mt-6">
+<%= render 'form', result_mail: @result_mail %>
+
+<%= link_to 'Back', result_mails_path, class: 'button is-link is-outlined is-small' %>
+</div>

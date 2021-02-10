@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <div style="background-color:#eeeeff;border:1px solid #00d1b2; border-radius:15px;width:80%;">
+      <h2 style="width:100%;height: 40px;background-color: #00d1b2;color:#fff;text-align: center;">
+        New Result about your sample: <strong><%= @result.sample.name %></strong>; <%= link_to 'click here for details', sample_result_url(@result.sample_id, @result), style: 'color: #fff;' %>!
+      </h2>
+      
+      <p style="padding:15px;width:100%;">
+        <%= @email_params[:email_message] %>
+      </p>
+      <p style="display:grid;place-items:center;width:100%;">
+        <button style="width:40%;margin:0 auto;outline:none;background-color:#01a48c;color:#fff;padding:10px;border:none;border-radius:5px;">
+          <%= link_to 'Details about the result', sample_result_url(@result.sample_id, @result), style: 'color: #fff;' %>
+        </button>
+      </p>
+    </div>
+  </body>
+</html>

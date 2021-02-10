@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   resources :lab_tests
   resources :department_for_tests
+  resources :result_mails
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   resources :users, only: [:show]

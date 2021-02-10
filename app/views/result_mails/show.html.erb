@@ -1,0 +1,30 @@
+<div class="columns is-centered is-vcentered mt-6">
+  <p class="column is-4">
+    <strong>Email sent to:</strong>
+    <%= @result_mail.recipient_email %>
+  </p>
+
+  <p class="column is-4">
+    <strong>Email sent by:</strong>
+    <%= @result_mail.user.username %>
+  </p>
+</div>
+<div class="columns is-centered is-vcentered">
+  <div style="background-color:#eeeeff;border:1px solid #00d1b2;border-radius:15px;width:80%;padding:15px">
+    <h2 style="width:100%;height: 40px;background-color: #00d1b2;color:#fff;text-align: center;">
+      New Result about your sample: <%= @result_mail.result.sample.name %>; <%= link_to 'click here for details', sample_result_url(@result_mail.result.sample_id, @result_mail.result), style: 'color: #fff;' %>!
+    </h2>
+    
+    <p style="padding:15px;width:100%;">
+      <%= @result_mail.email_message %>
+    </p>
+    <p style="display:grid;place-items:center;width:100%;">
+      <button style="width:40%;margin:0 auto;outline:none;background-color:#01a48c;color:#fff;padding:10px;border:none;border-radius:5px;">
+        <%= link_to 'Details about the result', sample_result_url(@result_mail.result.sample_id, @result_mail.result), style: 'color: #fff;' %>
+      </button>
+    </p>
+  </div>
+</div>
+<div class="columns is-centered is-vcentered mt-3">
+  <%= link_to 'Back', result_mails_path, class: 'button is-outlined is-small is-link is-pulled-right' %>
+</div>

@@ -1,0 +1,5 @@
+You got a new email from CRDL related to <%= link_to 'this result', sample_result_url(@result.sample_id, @result) %> for sample: <%= @result.sample.name %>
+
+To read more details of this result click on the following link: <%= link_to 'result link', sample_result_url(@result.sample_id, @result) %>
+
+<%= @email_params[:email_message] %>

@@ -1,0 +1,36 @@
+<%content_for :title do %>
+   List of all Result Mails &ndash;<%=DateTime.now.to_s(:nice_date)%> 
+<%end%>
+<div clss="columns is-centered is-vcentered">
+  <div class="column is-9">
+    <div class="panel is-link is-centered">
+      <div class="column is-4">
+        <%= link_to 'New Result Mail', new_result_mail_path, class: 'button is-link is-outlined is-fullwidth is-dark' %>
+      </div>
+      <table class="column table is-striped is-narrow is-hoverable is-fullwidth">
+        <thead class="panel-heading has-text-centered">
+          <tr class="is-size-6">
+            <th class="has-text-white">Recipient email</th>
+            <th class="has-text-white">Email subject</th>
+            <th class="has-text-white">Result</th>
+            <th class="has-text-white">Sent by</th>
+            <th class="has-text-white" colspan="3">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @result_mails.each do |result_mail| %>
+            <tr>
+              <td><%= result_mail.recipient_email %></td>
+              <td><%= result_mail.email_object %></td>
+              <td  class="has-text-centered"><%= link_to(result_mail.result_id, sample_result_path(result_mail.result.sample_id, result_mail.result)) %></td>
+              <td><%= result_mail.user.username %></td>
+              <td><%= link_to 'Details', result_mail, class: 'button is-primary is-small is-outlined mx-4' %></td>
+              <td><%= link_to 'Delete', result_mail, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger is-small is-outlined' %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

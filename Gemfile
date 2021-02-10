@@ -32,6 +32,7 @@ gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'rails_admin', '~> 2.0', '>= 2.0.2'
 gem 'rails_admin_rollincode', '~> 1.3'
 gem 'json', '~> 2.5', '>= 2.5.1'
+gem 'dotenv', '~> 2.7', '>= 2.7.6'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
